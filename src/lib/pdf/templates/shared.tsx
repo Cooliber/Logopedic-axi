@@ -25,7 +25,7 @@ export function PageHeader({
     >
       <div tw="flex items-center gap-4">
         <div
-          tw="flex h-[56px] w-[56px] items-center justify-center rounded-full bg-white text-[20px] font-black shrink-0"
+          tw="flex h-[84px] w-[84px] items-center justify-center rounded-full bg-white text-[20px] font-black shrink-0"
           style={{ border: "3px solid rgba(0,0,0,0.08)", color: color }}
         >
           {letter}

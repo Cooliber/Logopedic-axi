@@ -38,7 +38,7 @@ export function HistoryjkaTemplate({ name, date, eko }: Props = {}) {
                   <span tw="h-6 w-6 rounded-full flex items-center justify-center text-[10px] font-black text-white" style={{ backgroundColor: c.primary }}>{f.n}</span>
                   <span tw="h-6 w-6 rounded-full bg-white" style={{ border: `1.5px dashed #E5E7EB` }} />
                 </div>
-                {src ? <img src={src} tw="h-[64px] w-[64px] rounded-[12px] self-center" style={{ border: `2px solid #E5E7EB` }} /> : <span tw="h-[64px] w-[64px] rounded-[12px] bg-white flex items-center justify-center text-[16px] font-black self-center" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>{f.w[0]}</span>}
+                {src ? <img src={src} tw="h-[96px] w-[96px] rounded-[14px] self-center" style={{ border: `2px solid #E5E7EB` }} /> : <span tw="h-[96px] w-[96px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black self-center" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>{f.w[0]}</span>}
                 <span tw="text-[9px] font-bold text-[#1A1A2E] text-center leading-tight">{f.caption}</span>
                 <div tw="rounded-[10px] bg-[#FFFBEB] p-2 mt-1" style={{ border: `1.5px dashed #FDE68A` }}>
                   <span tw="text-[7px] font-bold text-[#713F12]">Powiedz: ___</span>

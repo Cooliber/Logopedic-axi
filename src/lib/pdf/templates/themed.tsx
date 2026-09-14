@@ -179,12 +179,12 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props
             <div
               key={it.w + it.pos}
               tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5"
-              style={{ border: `2px solid #E5E7EB`, minHeight: "128px" }}
+              style={{ border: `2px solid #E5E7EB`, minHeight: "168px" }}
             >
               {imgFor(it.w) ? (
-                <img src={imgFor(it.w)!} tw="h-[64px] w-[64px] rounded-[12px]" style={{ border: `2px solid #E5E7EB`, backgroundColor: "white" }} />
+                <img src={imgFor(it.w)!} tw="h-[96px] w-[96px] rounded-[14px] bg-white" />
               ) : (
-                <span tw="h-[64px] w-[64px] rounded-[12px] bg-white flex items-center justify-center text-[16px] font-black" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>
+                <span tw="h-[96px] w-[96px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>
                   {it.w.charAt(0)}
                 </span>
               )}
@@ -244,12 +244,12 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props
               return (
                 <div key={a + b} tw="rounded-[14px] bg-white p-3 flex items-center gap-2" style={{ border: `2px solid ${c.border}30` }}>
                   <div tw="flex flex-col items-center gap-1 flex-1">
-                    {aSrc ? <img src={aSrc} tw="h-[48px] w-[48px] rounded-[10px]" style={{ border: `1.5px solid #E5E7EB` }} /> : <span tw="h-[48px] w-[48px] rounded-[10px] bg-[#F9FAFB] flex items-center justify-center text-[14px] font-black" style={{ border: "1.5px solid #E5E7EB", color: c.primary }}>{a.charAt(0)}</span>}
+                    {aSrc ? <img src={aSrc} tw="h-[80px] w-[80px] rounded-[12px] bg-white" /> : <span tw="h-[80px] w-[80px] rounded-[12px] bg-[#F9FAFB] flex items-center justify-center text-[14px] font-black" style={{ border: "1.5px solid #E5E7EB", color: c.primary }}>{a.charAt(0)}</span>}
                     <span tw="text-[10px] font-black text-[#1A1A2E] text-center">{a}</span>
                   </div>
                   <span tw="text-[8px] font-black text-[#9CA3AF]">VS</span>
                   <div tw="flex flex-col items-center gap-1 flex-1">
-                    {bSrc ? <img src={bSrc} tw="h-[48px] w-[48px] rounded-[10px]" style={{ border: `1.5px solid #E5E7EB` }} /> : <span tw="h-[48px] w-[48px] rounded-[10px] bg-[#FFFBEB] flex items-center justify-center text-[14px] font-black" style={{ border: `1.5px solid ${c.border}`, color: c.dark }}>{b.charAt(0)}</span>}
+                    {bSrc ? <img src={bSrc} tw="h-[80px] w-[80px] rounded-[12px] bg-white" /> : <span tw="h-[80px] w-[80px] rounded-[12px] bg-[#FFFBEB] flex items-center justify-center text-[14px] font-black" style={{ border: `1.5px solid ${c.border}`, color: c.dark }}>{b.charAt(0)}</span>}
                     <span tw="text-[10px] font-black text-center" style={{ color: c.dark }}>{b}</span>
                   </div>
                   <div tw="flex flex-col gap-1 shrink-0">

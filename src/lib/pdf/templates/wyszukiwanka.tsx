@@ -74,7 +74,7 @@ export function WyszukiwankaTemplate({ name, date, eko }: Props = {}) {
               const src = wordToDataUri(w);
               return (
                 <div key={w} tw="flex items-center gap-2 rounded-full bg-[#FFFBEB] px-2 py-1.5" style={{ border: `1.5px solid #FDE68A` }}>
-                  {src ? <img src={src} tw="h-5 w-5 rounded-[6px]" style={{ border: `1px solid #E5E7EB` }} /> : <span tw="h-5 w-5 rounded-[6px] bg-white flex items-center justify-center text-[8px] font-black" style={{ border: `1px solid #E5E7EB`, color: c.primary }}>{w[0]}</span>}
+                  {src ? <img src={src} tw="h-8 w-8 rounded-[6px]" style={{ border: `1px solid #E5E7EB` }} /> : <span tw="h-8 w-8 rounded-[6px] bg-white flex items-center justify-center text-[8px] font-black" style={{ border: `1px solid #E5E7EB`, color: c.primary }}>{w[0]}</span>}
                   <span tw="text-[8px] font-black text-[#1A1A2E] flex-1">{w}</span>
                   <span tw="h-3 w-3 rounded-full bg-white" style={{ border: `1.5px solid ${c.primary}` }} />
                 </div>

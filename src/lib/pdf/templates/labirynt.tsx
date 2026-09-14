@@ -83,14 +83,14 @@ export function LabiryntTemplate({ name, date, eko }: Props = {}) {
                   style={{
                     border: `2px ${isTrap ? "solid #FECACA" : `solid ${c.border}`}`,
                     backgroundColor: isTrap ? "#FEF2F2" : "white",
-                    minHeight: "92px",
+                    minHeight: "168px",
                   }}
                 >
                   <span tw="absolute left-1 top-1 h-4 w-4 rounded-full flex items-center justify-center text-[7px] font-black text-white" style={{ backgroundColor: isTrap ? "#EF4444" : c.primary }}>{idx + 1}</span>
                   {src ? (
-                    <img src={src} tw="h-[36px] w-[36px] rounded-[8px] mt-1" style={{ border: `1.5px solid #E5E7EB` }} />
+                    <img src={src} tw="h-[64px] w-[64px] rounded-[12px] mt-1" style={{ border: `1.5px solid #E5E7EB` }} />
                   ) : (
-                    <span tw="h-[36px] w-[36px] rounded-[8px] bg-white flex items-center justify-center text-[12px] font-black" style={{ border: `1.5px solid #E5E7EB`, color: c.primary }}>{it.w.charAt(0)}</span>
+                    <span tw="h-[64px] w-[64px] rounded-[12px] bg-white flex items-center justify-center text-[12px] font-black" style={{ border: `1.5px solid #E5E7EB`, color: c.primary }}>{it.w.charAt(0)}</span>
                   )}
                   <span tw="text-[9px] font-black text-[#1A1A2E] text-center leading-none">{it.w}</span>
                   <span tw="h-3.5 w-3.5 rounded-full flex items-center justify-center text-[6px] font-black" style={{ backgroundColor: isTrap ? "#FECACA" : c.light, color: isTrap ? "#991B1B" : c.dark, border: `1px solid ${isTrap ? "#FECACA" : c.border}` }}>{isTrap ? "X" : it.pos}</span>

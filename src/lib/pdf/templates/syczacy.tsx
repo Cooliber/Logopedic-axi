@@ -54,7 +54,7 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
 
       {/* HERO — contiguity: obraz tuż obok tekstu, ≤20 słów instrukcji */}
       <div tw="rounded-[20px] bg-white p-4 mb-3 flex gap-4 items-center" style={{ border: "2px solid #E5E7EB" }}>
-        <img src={wordToDataUri("SOWA")!} tw="h-[76px] w-[76px] rounded-[14px] shrink-0" style={{ border: "2px solid #E5E7EB" }} />
+        <img src={wordToDataUri("SOWA")!} tw="h-[100px] w-[100px] rounded-[16px] shrink-0" style={{ border: "2px solid #E5E7EB" }} />
         <div tw="flex flex-col gap-1.5 flex-1">
           <span tw="text-[11px] font-black text-[#1A1A2E]">Poznaj Sowe Sonie</span>
           <span tw="text-[10px] font-semibold text-[#1A1A2E] leading-[1.6]" style={{ letterSpacing: "0.2px" }}>
@@ -93,8 +93,8 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
         </div>
         <div tw="grid grid-cols-4 gap-3">
           {words.map((it) => (
-            <div key={it.w} tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5" style={{ border: "2px solid #E5E7EB", minHeight: "128px" }}>
-              <img src={wordToDataUri(it.w)!} tw="h-[64px] w-[64px] rounded-[12px]" style={{ border: `2px solid #E5E7EB` }} />
+            <div key={it.w} tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5" style={{ border: "2px solid #E5E7EB", minHeight: "168px" }}>
+              <img src={wordToDataUri(it.w)!} tw="h-[96px] w-[96px] rounded-[14px]" style={{ border: `2px solid #E5E7EB` }} />
               <span tw="text-[11px] font-black text-[#1A1A2E] text-center tracking-tight" style={{ letterSpacing: "0.3px" }}>{it.w}</span>
               <span tw="h-4 w-4 rounded-full flex items-center justify-center text-[7px] font-black" style={{ backgroundColor: it.pos === "P" ? "#22C55E" : it.pos === "S" ? "#F59E0B" : "#EF4444", color: "white" }}>{it.pos}</span>
               <div tw="flex gap-1 mt-0.5">
@@ -182,11 +182,11 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
           <span tw="text-[7px] font-black bg-[#ECFDF5] px-2 py-1 rounded-full text-[#065F46]" style={{ border: "1.5px solid #6EE7B7" }}>wolno - stukaj rytm</span>
         </div>
         <div tw="flex gap-3 mt-3 items-center">
-          <img src={wordToDataUri("CYTRYNA")!} tw="h-[48px] w-[48px] rounded-[10px] shrink-0" style={{ border: "1.5px solid #E5E7EB" }} />
+          <img src={wordToDataUri("CYTRYNA")!} tw="h-[80px] w-[80px] rounded-[12px] shrink-0 bg-white" />
           <span tw="text-[10px] font-semibold text-[#1A1A2E] leading-[1.6] flex-1" style={{ letterSpacing: "0.2px" }}>
             Sok z <b>cytryny</b> na <b>stole</b>. Zuzia zaszywa <b>zamek</b>. <b>Dzwon</b> dudni, <b>dzik</b> tupie. Sowa syczy: sss...
           </span>
-          <img src={wordToDataUri("SOWA")!} tw="h-[48px] w-[48px] rounded-[10px] shrink-0" style={{ border: "1.5px solid #E5E7EB" }} />
+          <img src={wordToDataUri("SOWA")!} tw="h-[80px] w-[80px] rounded-[12px] shrink-0 bg-white" />
         </div>
         <div tw="rounded-full bg-[#FFFBEB] px-3 py-1.5 flex items-center justify-between mt-3" style={{ border: "1.5px dashed #FDE68A" }}>
           <span tw="text-[7px] font-bold text-[#713F12]">Wyzwanie 1 min - ile razy bez pomylki?</span>

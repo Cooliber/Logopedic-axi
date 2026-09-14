@@ -40,9 +40,9 @@ export function MemoryTemplate({ name, date, eko }: Props = {}) {
             const src = wordToDataUri(it.w);
             const isSecondHalf = idx >= 6;
             return (
-              <div key={it.w + idx} tw="rounded-[14px] bg-white p-2.5 flex flex-col items-center gap-1.5 relative" style={{ border: `2px solid #E5E7EB`, minHeight: "114px" }}>
+              <div key={it.w + idx} tw="rounded-[14px] bg-white p-2.5 flex flex-col items-center gap-1.5 relative" style={{ border: `2px solid #E5E7EB`, minHeight: "154px" }}>
                 <span tw="absolute left-1.5 top-1.5 h-4 w-4 rounded-full flex items-center justify-center text-[7px] font-black text-white" style={{ backgroundColor: isSecondHalf ? "#1A1A2E" : c.primary }}>{idx + 1}</span>
-                {src ? <img src={src} tw="h-[52px] w-[52px] rounded-[10px]" style={{ border: `2px solid #E5E7EB` }} /> : <span tw="h-[52px] w-[52px] rounded-[10px] bg-white flex items-center justify-center text-[14px] font-black" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>{it.w.charAt(0)}</span>}
+                {src ? <img src={src} tw="h-[84px] w-[84px] rounded-[14px] bg-white" /> : <span tw="h-[84px] w-[84px] rounded-[14px] bg-white flex items-center justify-center text-[14px] font-black" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>{it.w.charAt(0)}</span>}
                 <span tw="text-[10px] font-black text-[#1A1A2E] text-center leading-none">{it.w}</span>
                 <span tw="text-[7px] font-black px-1.5 py-0.5 rounded-full" style={{ backgroundColor: c.light, color: c.dark, border: `1px solid ${c.border}` }}>{it.pos}</span>
                 {isSecondHalf && <span tw="absolute right-1.5 bottom-1.5 h-2 w-2 rounded-full" style={{ backgroundColor: c.primary }} />}

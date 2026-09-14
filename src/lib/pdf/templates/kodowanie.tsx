@@ -50,8 +50,8 @@ export function KodowanieTemplate({ name, date, eko }: Props = {}) {
             const src = wordToDataUri(it.w);
             const col = it.pos === "P" ? "#22C55E" : it.pos === "S" ? "#FACC15" : "#EF4444";
             return (
-              <div key={it.w} tw="rounded-[16px] bg-white p-3 flex flex-col items-center gap-1.5" style={{ border: `2.5px dashed ${col}`, minHeight: "132px" }}>
-                {src ? <img src={src} tw="h-[56px] w-[56px] rounded-[12px] bg-white" style={{ border: `2px solid ${col}` }} /> : <span tw="h-[56px] w-[56px] rounded-[12px] bg-white flex items-center justify-center text-[16px] font-black" style={{ border: `2px solid ${col}`, color: col }}>{it.w[0]}</span>}
+              <div key={it.w} tw="rounded-[16px] bg-white p-3 flex flex-col items-center gap-1.5" style={{ border: `2.5px dashed ${col}`, minHeight: "168px" }}>
+                {src ? <img src={src} tw="h-[84px] w-[84px] rounded-[14px] bg-white" /> : <span tw="h-[84px] w-[84px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black" style={{ border: `2px solid ${col}`, color: col }}>{it.w[0]}</span>}
                 <span tw="text-[10px] font-black text-[#1A1A2E]">{it.w}</span>
                 <span tw="text-[7px] font-black px-2 py-1 rounded-full text-white" style={{ backgroundColor: col }}>{it.pos} - {it.code}</span>
                 <span tw="h-2 w-6 rounded-full bg-white mt-1" style={{ border: `1.5px solid ${col}` }} />

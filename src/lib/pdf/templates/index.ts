@@ -14,11 +14,16 @@ import { RotacyzmTemplate } from "./rotacyzm";
 import { SzumiacyTemplate } from "./szumiacy";
 import { SyczacyTemplate } from "./syczacy";
 import { WyszukiwankaTemplate } from "./wyszukiwanka";
+import { CymaticFrequenciesTemplate } from "./cymaticFrequencies";
+import { StandingWavesTemplate } from "./standingWaves";
+import { SacredVowelsTemplate } from "./sacredVowels";
+import { BreathGeometryTemplate } from "./breathGeometry";
+import { HarmonicBodyTemplate } from "./harmonicBody";
 import { makeThemedComponent } from "./themed";
 import { THEMES, PILOT_THEMES } from "../themes/catalog";
 import type { TemplateProps } from "../theme";
 
-export type BaseSlug = "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm" | "plynnosc" | "planszowka" | "dialog" | "oddech" | "katalog" | "dyplom" | "naklejki" | "labirynt" | "memory" | "wyszukiwanka" | "kodowanie" | "historyjka";
+export type BaseSlug = "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm" | "plynnosc" | "planszowka" | "dialog" | "oddech" | "katalog" | "dyplom" | "naklejki" | "labirynt" | "memory" | "wyszukiwanka" | "kodowanie" | "historyjka" | "cymatic-frequencies" | "standing-waves" | "sacred-vowels" | "breath-geometry" | "harmonic-body";
 export type ThemedSlug = `${"syczacy" | "szumiacy" | "ciszacy" | "rotacyzm"}-${string}`;
 export type TemplateSlug = BaseSlug | ThemedSlug;
 
@@ -182,6 +187,46 @@ export const templates: Record<
     color: "#FACC15",
     component: HistoryjkaTemplate,
     category: "gry-nowe",
+  },
+  "cymatic-frequencies": {
+    title: "Cymatyczne Czestotliwosci",
+    subtitle: "Dzwiek tworzy geometrie — 3 strony",
+    icon: "~",
+    color: "#6366F1",
+    component: CymaticFrequenciesTemplate,
+    category: "cymatics",
+  },
+  "standing-waves": {
+    title: "Fale Stojace",
+    subtitle: "Chladni — wzorce stojace — 2 strony",
+    icon: "~",
+    color: "#0891B2",
+    component: StandingWavesTemplate,
+    category: "cymatics",
+  },
+  "sacred-vowels": {
+    title: "Swiete Samogloski",
+    subtitle: "Cymatyka samoglosek — geometria glosu — 3 strony",
+    icon: "O",
+    color: "#A855F7",
+    component: SacredVowelsTemplate,
+    category: "cymatics",
+  },
+  "breath-geometry": {
+    title: "Geometria Oddechu",
+    subtitle: "Oddech = fala stojaca — 2 strony",
+    icon: "D",
+    color: "#DC2626",
+    component: BreathGeometryTemplate,
+    category: "cymatics",
+  },
+  "harmonic-body": {
+    title: "Harmonijne Cialo",
+    subtitle: "Dzwiek rezonuje z komorkami — 3 strony",
+    icon: "C",
+    color: "#059669",
+    component: HarmonicBodyTemplate,
+    category: "cymatics",
   },
   ...themedEntries,
 };

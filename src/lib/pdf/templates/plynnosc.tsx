@@ -23,7 +23,7 @@ export function PlynnoscTemplate({ name, date, eko }: { name?: string; date?: st
 
       <div tw="flex gap-3 mb-3">
         <div tw="flex-1 rounded-[16px] bg-white p-3 flex gap-3 items-center" style={{ border: "2.5px solid #90E0EF" }}>
-          <img src={wordToDataUri("ŻÓŁW")!} tw="h-[52px] w-[52px] rounded-[10px] shrink-0" style={{ border: "2px solid #90E0EF" }} />
+          <img src={wordToDataUri("ŻÓŁW")!} tw="h-[84px] w-[84px] rounded-[14px] shrink-0" style={{ border: "2px solid #90E0EF" }} />
           <div tw="flex flex-col flex-1">
             <span tw="text-[11px] font-black text-[#023E8A]">ŻÓŁW — tak mówimy</span>
             <span tw="text-[9px] font-bold text-[#0077B6]">Wolno • spokojnie • wyraźnie</span>
@@ -35,7 +35,7 @@ export function PlynnoscTemplate({ name, date, eko }: { name?: string; date?: st
           <span tw="text-[10px] font-black text-[#00B4D8]">OK</span>
         </div>
         <div tw="flex-1 rounded-[16px] bg-white p-3 flex gap-3 items-center" style={{ border: "2.5px dashed #FECACA" }}>
-          <img src={wordToDataUri("ZAJĄC")!} tw="h-[52px] w-[52px] rounded-[10px] shrink-0" style={{ border: "2px solid #FECACA" }} />
+          <img src={wordToDataUri("ZAJĄC")!} tw="h-[84px] w-[84px] rounded-[14px] shrink-0" style={{ border: "2px solid #FECACA" }} />
           <div tw="flex flex-col flex-1">
             <span tw="text-[11px] font-black text-[#6B7280]">ZAJĄC — za szybko</span>
             <span tw="text-[9px] font-bold text-[#6B7280]">Pędzi, gubi słowa</span>

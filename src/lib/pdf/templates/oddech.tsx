@@ -12,7 +12,7 @@ export function OddechTemplate({ name, date, eko }: { name?: string; date?: stri
 
       <div tw="flex gap-3 mb-3">
         <div tw="flex-1 rounded-[14px] bg-white px-4 py-3 flex gap-3 items-center" style={{ border: "2.5px dashed #FECACA" }}>
-          <img src={wordToDataUri("SMOK")!} tw="h-[36px] w-[36px] rounded-[8px] shrink-0" style={{ border: "1.5px solid #FECACA" }} />
+          <img src={wordToDataUri("SMOK")!} tw="h-[64px] w-[64px] rounded-[8px] shrink-0" style={{ border: "1.5px solid #FECACA" }} />
           <div tw="flex flex-col">
             <span tw="text-[10px] font-black uppercase tracking-widest text-[#DC2626]">Zasada smoka</span>
             <span tw="text-[9px] font-bold text-[#1A1A2E] leading-[1.4]">Wdech nosem — brzuch jak balon. Wydech ustami — długo, równo, z głosem. Ramiona spokojne!</span>

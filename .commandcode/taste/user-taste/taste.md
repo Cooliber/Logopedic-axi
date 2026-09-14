@@ -1,0 +1,11 @@
+# User Taste
+- User writes informally with typos, primarily in Polish but occasionally mixing in short English commands; prefers working in Polish. Confidence: 0.8
+- Gives very terse follow-up directives (e.g., "reaserch and edit") and expects the agent to carry out multi-step work autonomously without clarifying questions. Confidence: 0.65
+- Values correct Polish language usage and wants it explicitly addressed in project guidelines. Confidence: 0.8
+- Project domain: creating speech therapy (logopedyczne) materials; expects documentation (e.g., SKILL.md) to define required material properties and styling. Confidence: 0.7
+- Expects research to be performed before improving/rewriting documentation, rather than editing based on assumptions. Confidence: 0.7
+- Prefers finished, "ready to deliver" deliverables — print-ready PDF packages usable in class immediately, not raw components or half-done scripts. Confidence: 0.65
+- Values gamification and playful, kid-friendly themes (e.g., Hawaii, cars, horses, Halloween) in speech-therapy worksheets. Confidence: 0.6
+- Plans material releases in both free (to download) and paid (premium) tiers. Confidence: 0.55
+- Prefers a single consistent visual style for generated flashcard images — flat 2D, thick clean black outlines, soft pastel fill, pure white background, no text/labels, minimal detail, centered — and uses one reusable prompt template that varies only the subject word to keep a whole set coherent. Confidence: 0.8
+- Values end-user (child) usability over aesthetics in worksheet design: low visual density, clear hierarchy and numbered steps, larger active areas, more images than text, adult instructions separated from child-facing content, and one simple reward loop. Confidence: 0.75
