@@ -6,7 +6,7 @@ const c = kidPalette.plynnosc;
 
 export function PlynnoscTemplate({ name, date, eko }: { name?: string; date?: string; eko?: boolean } = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#F0F9FF" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#F0F9FF" }}>
       <PageHeader title="PŁYNNA RZEKA SŁÓW" subtitle="Płynność wypowiedzi • oddech • tempo • pauza" icon="~" color={c.primary} badge="FLOW" heroLetter="~" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 

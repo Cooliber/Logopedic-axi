@@ -1,5 +1,6 @@
 import { kidPalette } from "../theme";
 import { wordToDataUri } from "../icons";
+import { cymaticMandalaFull } from "../cymaticPatterns";
 import { THEMES, type ThemeId, type SzeregId } from "../themes/catalog";
 import { vocabulary } from "../themes/vocabulary";
 import { auditModules } from "../modules/types";
@@ -12,8 +13,10 @@ import {
   PageHeader,
   PersonalizationBar,
   PositionLegend,
+  RuledLines,
   SelfRating,
   StickerStrip,
+  TraceLine,
   XPTracker,
 } from "./shared";
 
@@ -92,7 +95,7 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props
                     : ["Skok obunóż + SOWA", "Rzut woreczkiem + ZUPA", "Klask + CYTRYNA x3"];
 
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : (c.light as string) }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : (c.light as string) }}>
       {/* HEADER */}
       <PageHeader title={`${s.label.toUpperCase()} - ${t.label.toUpperCase()}`} subtitle={`${s.subtitle} • Temat: ${t.label}`} icon={t.doodle} color={c.primary} badge={t.label} heroLetter={t.doodle} />
       <PersonalizationBar name={name} date={date} color={c.primary} />
@@ -179,12 +182,12 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props
             <div
               key={it.w + it.pos}
               tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5"
-              style={{ border: `2px solid #E5E7EB`, minHeight: "168px" }}
+              style={{ border: `2px solid #E5E7EB`, minHeight: "172px" }}
             >
               {imgFor(it.w) ? (
-                <img src={imgFor(it.w)!} tw="h-[96px] w-[96px] rounded-[14px] bg-white" />
+                <img src={imgFor(it.w)!} tw="h-[112px] w-[112px] rounded-[14px] bg-white" />
               ) : (
-                <span tw="h-[96px] w-[96px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>
+                <span tw="h-[112px] w-[112px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>
                   {it.w.charAt(0)}
                 </span>
               )}
@@ -303,14 +306,16 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props
             </div>
           ))}
         </div>
-        {/* Miejsce na pracę dziecka - linie + rysunek */}
+        {/* Miejsce na pracę dziecka - linie 3-liniowe 14mm DeskRated */}
         <div tw="mt-3 rounded-[12px] bg-[#F9FAFB] p-3" style={{ border: "1.5px dashed #D1D5DB" }}>
-          <span tw="text-[7px] font-black tracking-widest text-[#6B7280]">MOJE ZDANIE / RYSUNEK</span>
-          <div tw="mt-2 flex flex-col gap-2">
-            <div tw="h-[18px] rounded-[6px] bg-white" style={{ border: "1.5px solid #E5E7EB" }} />
-            <div tw="h-[18px] rounded-[6px] bg-white" style={{ border: "1.5px solid #E5E7EB" }} />
+          <span tw="text-[7px] font-black tracking-widest text-[#6B7280]">MOJE ZDANIE / RYSUNEK — linia trzyliniowa 14mm</span>
+          <div tw="mt-2">
+            <RuledLines lines={2} accent={c.secondary} />
           </div>
-          <span tw="text-[6px] font-bold text-[#9CA3AF] mt-1">Napisz jedno zdanie z słów powyżej lub narysuj</span>
+        </div>
+        {/* TraceLine — propriocepcja, chunking ruch + głos (Van Riper) */}
+        <div tw="mt-3 rounded-[12px] bg-white p-3" style={{ border: `1.5px dashed ${c.border}` }}>
+          <TraceLine accent={c.primary} label="ŚCIEŻKA PALCA — prowadz palcem / kredką" />
         </div>
         {/* Dla dorosłego - osobna mała ramka, nie konkuruje */}
         <div tw="mt-2 rounded-[10px] bg-[#F9FAFB] px-3 py-2 flex gap-2" style={{ border: "1.5px solid #E5E7EB" }}>
@@ -334,17 +339,8 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props
           <span tw="ml-auto text-[7px] font-black px-2 py-1 rounded-full bg-[#F9FAFB] text-[#6B7280]" style={{ border: "1.5px solid #E5E7EB" }}>2 min - koloruj od srodka</span>
         </div>
         <span tw="text-[9px] font-semibold text-[#4B5563] text-center leading-[1.5]">Wybierz 2 kolory. Koloruj od srodka na zewnatrz. Oddychaj spokojnie: wdech nosem, wydech ustami s-s-s. To trenuje uwage.</span>
-        <div tw="relative flex items-center justify-center mt-2">
-          <div tw="h-[180px] w-[180px] rounded-full flex items-center justify-center" style={{ border: `3px dashed ${c.border}`, backgroundColor: "#FFFBEB" }}>
-            <div tw="h-[120px] w-[120px] rounded-full bg-white flex items-center justify-center" style={{ border: `3px solid ${c.primary}` }}>
-              <span tw="text-[32px] font-black" style={{ color: c.primary }}>{t.doodle}</span>
-            </div>
-          </div>
-          <div tw="absolute flex gap-2" style={{ top: "6px" }}>
-            <span tw="h-3 w-3 rounded-full" style={{ backgroundColor: c.primary }} />
-            <span tw="h-3 w-3 rounded-full bg-white" style={{ border: `2px solid ${c.primary}` }} />
-            <span tw="h-3 w-3 rounded-full" style={{ backgroundColor: c.primary }} />
-          </div>
+        <div tw="flex items-center justify-center mt-2">
+          <img src={cymaticMandalaFull({ letter: t.doodle, accent: c.primary, series: szereg === "rotacyzm" ? "rotacyzm" : szereg === "szumiacy" ? "szumiacy" : szereg === "ciszacy" ? "ciszacy" : "syczacy" })} tw="h-[180px] w-[180px]" />
         </div>
         <div tw="flex gap-2 mt-2 self-stretch">
           <div tw="flex-1 rounded-[12px] bg-[#F9FAFB] p-3 flex flex-col gap-1" style={{ border: "1.5px solid #E5E7EB" }}>

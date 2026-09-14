@@ -23,7 +23,7 @@ const c = { primary: "#0891B2", secondary: "#0E7490", accent: "#06B6D4", light: 
 
 export function StandingWavesTemplate({ name, date, eko }: { name?: string; date?: string; eko?: boolean } = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : c.light }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : c.light }}>
       <PageHeader title="FALE STOJACE" subtitle="Chladni — wzorce stojace" icon="~" color={c.primary} badge="2" heroLetter="~" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 

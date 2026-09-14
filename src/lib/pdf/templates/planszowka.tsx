@@ -60,7 +60,7 @@ export function PlanszowkaTemplate({ name, date, eko }: { name?: string; date?: 
   };
 
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFF8F0" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFF8F0" }}>
       <PageHeader title="PLANSZÓWKA GŁOSEK" subtitle="Gra do druku • s z c dz • sz ż cz dż • ś ź ć dź • r • 36 pól" icon="G" color={c.primary} badge="2-4 GRACZY" heroLetter="G" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 

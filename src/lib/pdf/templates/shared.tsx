@@ -2,6 +2,8 @@
 // High-quality kid experience: personalization, multi-level, multisensory, deep gamification
 // Hybrid icons: word pics via icons.tsx dataURI, UI doodles via react-doodle-icons (MIT)
 
+import { cymaticMandalaSmall } from "../cymaticPatterns";
+
 export function PageHeader({
   title,
   subtitle,
@@ -114,7 +116,7 @@ export function InstructionCard({
             <span tw="text-[8px] font-black bg-[#F3F4F6] px-2 py-0.5 rounded-full text-[#6B7280]">{time}</span>
           )}
         </div>
-        <span tw="text-[11px] leading-[1.6] text-[#1A1A2E] font-semibold" style={{ letterSpacing: "0.2px" }}>{text}</span>
+        <span tw="text-[11px] leading-[1.6] text-[#1A1A2E] font-semibold" style={{ letterSpacing: "0.3px" }}>{text}</span>
         {steps && steps.length > 0 && (
           <div tw="flex gap-1.5 mt-1">
             {steps.map((s, i) => (
@@ -225,6 +227,25 @@ export function CuttingLine() {
   );
 }
 
+// 3-line guide dla klas 1-2 — 14mm = 52px, DeskRated §4.1, research worksheet 2026-09-14
+// Gorne/dolne lita 0.8px solid, srodkowa przerywana — dziecko pisze miedzy liniami
+export function RuledLines({ lines = 2, accent = "#9CA3AF" }: { lines?: number; accent?: string }) {
+  return (
+    <div tw="flex flex-col gap-2">
+      {Array.from({ length: lines }).map((_, i) => (
+        <div key={i} tw="flex flex-col rounded-[6px] bg-white px-2 py-2 gap-0" style={{ border: `1.5px solid #E5E7EB` }}>
+          <div tw="h-[1px] w-full" style={{ backgroundColor: accent }} />
+          <div tw="h-[10px] w-full" />
+          <div tw="h-[1px] w-full" style={{ borderTop: `1px dashed ${accent}` }} />
+          <div tw="h-[10px] w-full" />
+          <div tw="h-[1px] w-full" style={{ backgroundColor: accent }} />
+        </div>
+      ))}
+      <span tw="text-[6px] font-bold text-[#9CA3AF]">Linia trzyliniowa 14mm — pisz między liniami, ogonki poniżej dolnej</span>
+    </div>
+  );
+}
+
 export function StickerStrip({ count = 5, accent, label, icons }: { count?: number; accent: string; label?: string; icons?: string[] }) {
   const doodleMarks = ["*", "+", "#", "*", "◆"];
   return (
@@ -323,12 +344,21 @@ export function ColoringTile({
   );
 }
 
-export function MandalaCenter({ accent, icon }: { accent: string; icon?: string }) {
+export function MandalaCenter({
+  accent,
+  icon,
+  series = "syczacy",
+}: {
+  accent: string;
+  icon?: string;
+  series?: "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm";
+}) {
+  const mandalaSvg = cymaticMandalaSmall({ letter: icon || "*", accent, series });
   return (
     <div tw="flex flex-col items-center justify-center rounded-full bg-white p-3 gap-1" style={{ border: `3px solid #1A1A2E`, boxShadow: "0 4px 0 rgba(0,0,0,0.08)", minHeight: "96px", minWidth: "96px" }}>
-      <span tw="h-7 w-7 rounded-full flex items-center justify-center text-[14px] font-black text-white" style={{ backgroundColor: accent }}>{icon || "*"}</span>
+      <img src={mandalaSvg} tw="h-[64px] w-[64px]" />
       <span tw="text-[8px] font-black tracking-widest text-[#1A1A2E] uppercase">mandala</span>
-      <span tw="text-[6px] font-bold text-[#6B7280] text-center leading-tight">połącz • pokoloruj<br/>sss…</span>
+      <span tw="text-[6px] font-bold text-[#6B7280] text-center leading-tight">pokoloruj wzor<br/>od srodka</span>
       <div tw="flex gap-1 mt-1">
         <span tw="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accent }} />
         <span tw="h-1.5 w-1.5 rounded-full bg-white" style={{ border: `1.2px solid ${accent}` }} />

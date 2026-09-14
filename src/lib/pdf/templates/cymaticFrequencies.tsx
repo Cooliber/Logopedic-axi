@@ -36,7 +36,7 @@ const phonemeMap = [
 
 export function CymaticFrequenciesTemplate({ name, date, eko }: { name?: string; date?: string; eko?: boolean } = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : c.light }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : c.light }}>
       <PageHeader title="CYMATYCZNE CZESTOTLIWOSCI" subtitle="Dzwiek tworzy geometrie" icon="~" color={c.primary} badge="3" heroLetter="~" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 

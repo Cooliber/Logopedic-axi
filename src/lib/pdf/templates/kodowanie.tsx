@@ -18,7 +18,7 @@ const ITEMS: Array<{ w: string; pos: "P" | "S" | "K"; code: string }> = [
 
 export function KodowanieTemplate({ name, date, eko }: Props = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#F5F3FF" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#F5F3FF" }}>
       <PageHeader title="KODOWANIE KOLOREM" subtitle="Pokoloruj wg pozycji gloski - P/S/K" icon="K" color={c.primary} badge="GRA 4" heroLetter="K" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 
@@ -50,7 +50,7 @@ export function KodowanieTemplate({ name, date, eko }: Props = {}) {
             const src = wordToDataUri(it.w);
             const col = it.pos === "P" ? "#22C55E" : it.pos === "S" ? "#FACC15" : "#EF4444";
             return (
-              <div key={it.w} tw="rounded-[16px] bg-white p-3 flex flex-col items-center gap-1.5" style={{ border: `2.5px dashed ${col}`, minHeight: "168px" }}>
+              <div key={it.w} tw="rounded-[16px] bg-white p-3 flex flex-col items-center gap-1.5" style={{ border: `2.5px dashed ${col}`, minHeight: "172px" }}>
                 {src ? <img src={src} tw="h-[84px] w-[84px] rounded-[14px] bg-white" /> : <span tw="h-[84px] w-[84px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black" style={{ border: `2px solid ${col}`, color: col }}>{it.w[0]}</span>}
                 <span tw="text-[10px] font-black text-[#1A1A2E]">{it.w}</span>
                 <span tw="text-[7px] font-black px-2 py-1 rounded-full text-white" style={{ backgroundColor: col }}>{it.pos} - {it.code}</span>

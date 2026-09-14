@@ -22,7 +22,7 @@ export function NaklejkiTemplate({ name, eko }: TemplateProps = {}) {
   const all = Array.from({ length: 48 }, (_, i) => stickers[i % stickers.length]);
 
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: bg }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: bg }}>
       <PageHeader title="NAKLEJKI I ŻETONY" subtitle="Do wycięcia  48 szt  laminuj  nagradzaj każdy krok" icon="N" color={kidPalette.oddech.secondary} badge="48 SZT" heroLetter="N" />
       <PersonalizationBar name={name} date={undefined} color={kidPalette.oddech.secondary} />
 

@@ -52,27 +52,29 @@ export const tokens = {
     header: "0 4px 0 rgba(0,0,0,0.08)",
   },
   spacing: {
-    page: 20,   // p-5 = 20px, safe for lamination 10-15mm
+    page: 24,   // p-6 = 24px = 9mm, research §4.2 safe 12mm outer (ISO 216 A4 210x297 @300dpi)
     cardGap: 12, // gap-3
     inner: 16,   // p-4
     sectionMb: 12,
+    bleed: 3,    // 3mm bleed gdy tlo do krawedzi (takumi margin:0 + bleed style)
+    safeZone: 12, // 12mm safe dla laminowania — nic waznego blizej krawedzi
   },
   typo: {
-    // BDA dyslexia-friendly: 11-12px body, 1.5-1.6 LH, +0.2-0.3px tracking
+    // Research 2026-09-14 §4.2: infant font 14-18pt print ~11-12px PDF, LH 1.6, tracking 0.3px, left-align
     hero: "text-[20px] font-extrabold leading-none tracking-tight",
     subtitle: "text-[10px] font-bold tracking-widest uppercase",
     label: "text-[9px] font-black tracking-widest uppercase",
     labelSm: "text-[8px] font-black tracking-widest uppercase",
-    body: "text-[11px] font-bold leading-[1.6]",
-    bodyLg: "text-[12px] font-extrabold leading-tight",
-    small: "text-[8px] font-bold leading-[1.4]",
-    caption: "text-[7px] font-bold leading-tight",
+    body: "text-[11px] font-bold leading-[1.6] tracking-[0.3px]",
+    bodyLg: "text-[12px] font-extrabold leading-tight tracking-[0.3px]",
+    small: "text-[8px] font-bold leading-[1.4] tracking-[0.3px]",
+    caption: "text-[8px] font-bold leading-tight tracking-[0.3px]",
   },
   a11y: {
     minContrast: 4.5,
     minBodyPt: 11,
-    lineHeight: 1.5,
-    letterSpacing: "0.2px",
+    lineHeight: 1.6,
+    letterSpacing: "0.3px",
   },
 } as const;
 
@@ -106,9 +108,10 @@ export const layout = {
   page: {
     size: "A4" as const,
     margin: 0, // padding w szablonie
-    padding: 20,
-    safeZone: 10, // min od krawędzi dla laminowania
-    usablePx: 940, // 297mm - 2*20px - safeZone
+    padding: 24, // 9mm = 24px @~72dpi Takumi (research bleed 3mm + safe 12mm)
+    safeZone: 12, // 12mm min od krawędzi dla laminowania (research §4.2)
+    bleed: 3, // 3mm bleed gdy eko=false i tło kolorowe
+    usablePx: 932, // 794 Takumi px - 2*24 - safeZone mapping
   },
   grid: {
     wordsPerRow: 4,
@@ -119,17 +122,19 @@ export const layout = {
     order: ["personalization", "header", "hierarchy", "hero", "words", "exercises", "closing"] as const,
     maxSections: 6,
   },
-  // Metodyka modułowa A4 — budżet wysokości per moduł (suma 744px + padding/gap = 844px < 940px)
+  // Metodyka modułowa A4 — budżet wysokości per moduł (suma 744px + padding/gap = 844px < 932px, 3 strony = 3×744)
   module: {
     header: 64,
     personalization: 32,
     hierarchy: 28,
-    hero: 108,
-    words: 260,      // mandala 8 kafelków + centrum
-    exercises: 180,  // pairs / movement / historyjka
-    closing: 72,
+    hero: 112, // 108→112 (F1 hero 100→112)
+    words: 264,      // mandala 8 kafelków + centrum, +4 na 112px word
+    exercises: 176,  // pairs / movement / historyjka
+    closing: 68,
   } as const,
   totalBudgetPx: 744,
+  totalBudget3p: 2232, // 3×744 dla 3p karty (research 2-5 A4)
+  pages: { single: 744, triple: 2232 } as const,
 } as const;
 
 export type ModuleId = keyof typeof layout.module;

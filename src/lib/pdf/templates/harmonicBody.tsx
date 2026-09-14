@@ -33,7 +33,7 @@ const bodyFrequencies = [
 
 export function HarmonicBodyTemplate({ name, date, eko }: { name?: string; date?: string; eko?: boolean } = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : c.light }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : c.light }}>
       <PageHeader title="HARMONIJNE CIALO" subtitle="Dzwiek rezonuje z komorkami" icon="C" color={c.primary} badge="3" heroLetter="C" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 

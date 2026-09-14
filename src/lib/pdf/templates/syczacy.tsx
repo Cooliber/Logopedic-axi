@@ -1,5 +1,6 @@
 import { kidPalette } from "../theme";
 import { wordToDataUri } from "../icons";
+import { cymaticMandalaSmall, cymaticMandalaFull } from "../cymaticPatterns";
 import {
   CuttingLine,
   DottedCard,
@@ -30,7 +31,7 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
   ];
 
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFFBEB" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFFBEB" }}>
       <PageHeader title="SYK SYCYLII" subtitle="Szereg syczacy - s z c dz - syczy jak waz" icon="S" color={c.primary} badge="1" heroLetter="S" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 
@@ -54,7 +55,7 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
 
       {/* HERO — contiguity: obraz tuż obok tekstu, ≤20 słów instrukcji */}
       <div tw="rounded-[20px] bg-white p-4 mb-3 flex gap-4 items-center" style={{ border: "2px solid #E5E7EB" }}>
-        <img src={wordToDataUri("SOWA")!} tw="h-[100px] w-[100px] rounded-[16px] shrink-0" style={{ border: "2px solid #E5E7EB" }} />
+        <img src={wordToDataUri("SOWA")!} tw="h-[112px] w-[112px] rounded-[16px] shrink-0" style={{ border: "2px solid #E5E7EB" }} />
         <div tw="flex flex-col gap-1.5 flex-1">
           <span tw="text-[11px] font-black text-[#1A1A2E]">Poznaj Sowe Sonie</span>
           <span tw="text-[10px] font-semibold text-[#1A1A2E] leading-[1.6]" style={{ letterSpacing: "0.2px" }}>
@@ -93,8 +94,8 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
         </div>
         <div tw="grid grid-cols-4 gap-3">
           {words.map((it) => (
-            <div key={it.w} tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5" style={{ border: "2px solid #E5E7EB", minHeight: "168px" }}>
-              <img src={wordToDataUri(it.w)!} tw="h-[96px] w-[96px] rounded-[14px]" style={{ border: `2px solid #E5E7EB` }} />
+            <div key={it.w} tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5" style={{ border: "2px solid #E5E7EB", minHeight: "172px" }}>
+              <img src={wordToDataUri(it.w)!} tw="h-[112px] w-[112px] rounded-[14px]" style={{ border: `2px solid #E5E7EB` }} />
               <span tw="text-[11px] font-black text-[#1A1A2E] text-center tracking-tight" style={{ letterSpacing: "0.3px" }}>{it.w}</span>
               <span tw="h-4 w-4 rounded-full flex items-center justify-center text-[7px] font-black" style={{ backgroundColor: it.pos === "P" ? "#22C55E" : it.pos === "S" ? "#F59E0B" : "#EF4444", color: "white" }}>{it.pos}</span>
               <div tw="flex gap-1 mt-0.5">
@@ -117,23 +118,14 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
         <span tw="text-[7px] font-black tracking-widest text-[#9CA3AF]">- - - KONIEC STRONY 1 - przewroc kartke - - -</span>
       </div>
 
-      {/* MANDALA — osobny blok executive, nie w siatce slow (coherence) */}
+      {/* MANDALA — cymatic pattern, osobny blok executive */}
       <div tw="rounded-[20px] bg-white p-4 mb-3 flex flex-col items-center gap-2" style={{ border: "2px solid #E5E7EB" }}>
         <span tw="text-[9px] font-black tracking-widest text-[#1A1A2E]">MANDALA - pokoloruj po slowach</span>
         <span tw="text-[7px] font-bold text-[#6B7280] text-center">Skup uwage 2 min - koloruj od srodka na zewnatrz. To trenuje uwage (Cureus 2023).</span>
-        <div tw="relative flex items-center justify-center mt-1">
-          {/* dashed mandala tlo */}
-          <div tw="h-[96px] w-[96px] rounded-full flex items-center justify-center" style={{ border: "2.5px dashed #FDE68A", backgroundColor: "#FFFBEB" }}>
-            <div tw="h-[64px] w-[64px] rounded-full bg-white flex items-center justify-center" style={{ border: `2px solid ${c.primary}` }}>
-              <span tw="text-[14px] font-black" style={{ color: c.primary }}>S</span>
-            </div>
-          </div>
-          <div tw="absolute flex gap-1.5 top-0">
-            <span tw="h-2 w-2 rounded-full" style={{ backgroundColor: c.primary }} />
-            <span tw="h-2 w-2 rounded-full bg-white" style={{ border: `1.5px solid ${c.primary}` }} />
-          </div>
+        <div tw="flex items-center justify-center mt-1">
+          <img src={cymaticMandalaSmall({ letter: "S", accent: c.primary, series: "syczacy" })} tw="h-[112px] w-[112px]" />
         </div>
-        <span tw="text-[7px] font-bold text-[#6B7280]">Wybierz 2 kolory - pokoloruj S na zmiane</span>
+        <span tw="text-[7px] font-bold text-[#6B7280]">Wybierz 2 kolory - pokoloruj wzor</span>
       </div>
 
       {/* PARY MINIMALNE + RUCH — 2 kolumny, chunking po 2 */}
@@ -201,10 +193,8 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
       <div tw="rounded-[20px] bg-white p-5 mb-3 flex flex-col items-center gap-3" style={{ border: "2.5px dashed #FDE68A" }}>
         <span tw="text-[11px] font-black tracking-widest text-[#1A1A2E]">MANDALA - skupienie po pracy</span>
         <span tw="text-[9px] font-semibold text-[#4B5563] text-center leading-[1.5]">Wybierz 2 kolory. Koloruj od srodka na zewnatrz. Oddychaj spokojnie: wdech nosem, wydech ustami s-s-s.</span>
-        <div tw="h-[180px] w-[180px] rounded-full flex items-center justify-center" style={{ border: "3px dashed #FDE68A", backgroundColor: "#FFFBEB" }}>
-          <div tw="h-[120px] w-[120px] rounded-full bg-white flex items-center justify-center" style={{ border: "3px solid #FACC15" }}>
-            <span tw="text-[28px] font-black" style={{ color: "#FACC15" }}>S</span>
-          </div>
+        <div tw="flex items-center justify-center">
+          <img src={cymaticMandalaFull({ letter: "S", accent: "#FACC15", series: "syczacy" })} tw="h-[180px] w-[180px]" />
         </div>
         <span tw="text-[7px] font-bold text-[#9CA3AF]">Po mandali: zamknij oczy, powiedz 3 slowa ktore pamietasz najlepiej.</span>
       </div>

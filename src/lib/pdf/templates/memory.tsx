@@ -14,7 +14,7 @@ const PAIRS: Array<{ w: string; pos: "P" | "S" | "K" }> = [
 
 export function MemoryTemplate({ name, date, eko }: Props = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFF7ED" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFF7ED" }}>
       <PageHeader title="MEMORY GLOSKI" subtitle="Dopasuj pare - obrazek + slowo - wytnij i graj" icon="M" color={c.primary} badge="GRA 2" heroLetter="M" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 

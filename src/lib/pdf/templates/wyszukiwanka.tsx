@@ -21,7 +21,7 @@ const GRID: string[][] = [
 
 export function WyszukiwankaTemplate({ name, date, eko }: Props = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFFBEB" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFFBEB" }}>
       <PageHeader title="WYSZUKIWANKA SLOW" subtitle="Znajdz 8 slow - zakresl - powiedz glosno" icon="W" color={c.primary} badge="GRA 3" heroLetter="W" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 

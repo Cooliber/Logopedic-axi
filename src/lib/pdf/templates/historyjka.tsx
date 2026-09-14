@@ -14,7 +14,7 @@ const FRAMES: Array<{ n: number; w: string; caption: string }> = [
 
 export function HistoryjkaTemplate({ name, date, eko }: Props = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFFBEB" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFFBEB" }}>
       <PageHeader title="HISTORYJKA OBRAZKOWA" subtitle="Uloz 4 kadry - opowiedz - s z c dz w kazdym zdaniu" icon="H" color={c.primary} badge="GRA 5" heroLetter="H" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 
@@ -33,12 +33,12 @@ export function HistoryjkaTemplate({ name, date, eko }: Props = {}) {
           {FRAMES.map((f) => {
             const src = wordToDataUri(f.w);
             return (
-              <div key={f.n} tw="rounded-[16px] bg-white p-3 flex flex-col gap-2" style={{ border: `2px solid #E5E7EB`, minHeight: "168px" }}>
+              <div key={f.n} tw="rounded-[16px] bg-white p-3 flex flex-col gap-2" style={{ border: `2px solid #E5E7EB`, minHeight: "172px" }}>
                 <div tw="flex items-center justify-between">
                   <span tw="h-6 w-6 rounded-full flex items-center justify-center text-[10px] font-black text-white" style={{ backgroundColor: c.primary }}>{f.n}</span>
                   <span tw="h-6 w-6 rounded-full bg-white" style={{ border: `1.5px dashed #E5E7EB` }} />
                 </div>
-                {src ? <img src={src} tw="h-[96px] w-[96px] rounded-[14px] self-center" style={{ border: `2px solid #E5E7EB` }} /> : <span tw="h-[96px] w-[96px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black self-center" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>{f.w[0]}</span>}
+                {src ? <img src={src} tw="h-[112px] w-[112px] rounded-[14px] self-center" style={{ border: `2px solid #E5E7EB` }} /> : <span tw="h-[112px] w-[112px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black self-center" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>{f.w[0]}</span>}
                 <span tw="text-[9px] font-bold text-[#1A1A2E] text-center leading-tight">{f.caption}</span>
                 <div tw="rounded-[10px] bg-[#FFFBEB] p-2 mt-1" style={{ border: `1.5px dashed #FDE68A` }}>
                   <span tw="text-[7px] font-bold text-[#713F12]">Powiedz: ___</span>

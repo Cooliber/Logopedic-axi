@@ -94,8 +94,8 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
     ciszacy: [
       P("ŚWINKA", "S"), P("ŚLIMAK", "S"),
       P("ĆMA", "C"), P("CIELAK", "C"),
-      K("MIŚ", "S"), K("LIŚĆ", "S"),
-      P("DŹWIG", "DZ"),
+      K("MIŚ", "S"), K("LIŚĆ", "S"), K("KOŚĆ", "S"),
+      P("DŹWIG", "DZ"), S("WIŚNIA", "S"), S("MIŚKI", "S"),
     ],
     rotacyzm: [
       P("RAK", "R"), P("RYBA", "R"), P("REKIN", "R"), P("RYS", "R"), P("RÓŻA", "R"),
@@ -233,8 +233,8 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
     ciszacy: [
       P("ŚLIWKA", "S"), P("ŚMIETANA", "S"), P("ŚLEDŹ", "S"),
       P("ĆWIKŁA", "C"), P("CIASTO", "C"),
-      K("MIŚ", "S"),
-      P("DŹWIĘK", "DZ"),
+      K("MIŚ", "S"), K("KOŚĆ", "S"), K("LIŚĆ", "S"),
+      P("DŹWIĘK", "DZ"), S("WIŚNIA", "S"), S("MIŚKI", "S"),
     ],
     rotacyzm: [
       P("RYŻ", "R"), P("RYBA", "R"), P("RZODKIEWKA", "R"), P("RUKOLA", "R"),
@@ -454,9 +454,10 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
       P("DŻUNGLE", "DZ"),
     ],
     ciszacy: [
-      P("ŚLIMAK", "S"), P("ŚCIEŻKA", "S"),
-      P("ĆMA", "C"), P("CIENIE", "C"),
-      K("LIŚĆ", "S"), K("MIŚ", "S"),
+      P("ŚLIMAK", "S"), P("ŚCIEŻKA", "S"), P("ŚWIECA", "S"), P("ŚNIEG", "S"),
+      P("ĆMA", "C"), P("CIENIE", "C"), P("DŹWIĘK", "DZ"),
+      K("LIŚĆ", "S"), K("MIŚ", "S"), K("KOŚĆ", "S"),
+      S("WIŚNIA", "S"), S("MIŚKI", "S"),
     ],
     rotacyzm: [
       P("RAFA", "R"), P("REKIN", "R"), P("RYBA", "R"), P("RÓŻA", "R"),
@@ -478,14 +479,14 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
       K("JEŻ", "Z"), K("KOSZ", "SZ"),
     ],
     ciszacy: [
-      P("ŚWIECA", "S"), P("ŚWIECE", "S"), P("ĆMA", "C"),
-      K("KOŚĆ", "S"), K("LIŚĆ", "S"),
-      P("DŹWIĘK", "DZ"),
+      P("ŚWIECA", "S"), P("ŚWIECE", "S"), P("ĆMA", "C"), P("ŚNIEG", "S"),
+      K("KOŚĆ", "S"), K("LIŚĆ", "S"), K("MIŚ", "S"),
+      P("DŹWIĘK", "DZ"), S("WIŚNIA", "S"), S("MIŚKI", "S"),
     ],
     rotacyzm: [
-      P("RÓŻA", "R"), P("ROBOT", "R"), P("RYCERZ", "R"),
-      S("TRUMNIA", "R"), S("KORONA", "R"),
-      K("MUR", "R"), K("TORT", "R"),
+      P("RÓŻA", "R"), P("ROBOT", "R"), P("RYCERZ", "R"), P("RAKIETA", "R"),
+      S("TRUMNIA", "R"), S("KORONA", "R"), S("TRAWNIK", "R"),
+      K("MUR", "R"), K("TORT", "R"), K("KORAL", "R"),
     ],
   },
   minecraft: {
@@ -498,13 +499,15 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
     szumiacy: [
       P("SZKIELET", "SZ"), P("SZKŁO", "SZ"), P("SZOP", "SZ"),
       P("ŻELAZO", "Z"),
-      P("CZAPKA", "CZ"),
+      P("CZAPKA", "CZ"), P("DŻINSY", "DZ"),
+      S("KOSZYK", "SZ"), S("PUSZKA", "SZ"),
       K("MYSZ", "SZ"), K("GARAŻ", "Z"),
     ],
     ciszacy: [
-      P("ŚNIEG", "S"), P("ŚWIECA", "S"),
-      P("ĆMA", "C"), P("CIENIE", "C"),
-      K("KOŚĆ", "S"), K("LIŚĆ", "S"),
+      P("ŚNIEG", "S"), P("ŚWIECA", "S"), P("ŚCIANA", "S"),
+      P("ĆMA", "C"), P("CIENIE", "C"), P("DŹWIĘK", "DZ"),
+      K("KOŚĆ", "S"), K("LIŚĆ", "S"), K("MIŚ", "S"),
+      S("WIŚNIA", "S"), S("MIŚKI", "S"),
     ],
     rotacyzm: [
       P("RÓWNOWAGA", "R"), P("RURA", "R"), P("RYBA", "R"), P("REKIN", "R"),

@@ -141,6 +141,13 @@ export const PILOT_PROMPTS: Array<PromptInput & { id: string; word?: string }> =
   { id: "word-CZAPLA", word: "CZAPLA", subject: "cute heron bird with long legs, friendly", style: "doodle" },
 ];
 
+// Deterministyczny seed per slowo — research pipeline HF manifest gate §4, seed = hash(word) % 2^31
+export function hashWordToSeed(word: string): number {
+  let h = 0;
+  for (let i = 0; i < word.length; i++) h = (Math.imul(31, h) + word.charCodeAt(i)) | 0;
+  return Math.abs(h) % 2147483647;
+}
+
 // Helper: prompt dla dowolnego słowa — CANONICAL white bg (bez theme) vs THEMED z theme
 export function promptForWord(word: string, theme: string, szereg: string, style: KidStyle = "doodle") {
   const subject = `object representing the Polish word "${word}" — simple, recognizable, child-friendly`;
@@ -154,7 +161,7 @@ export function promptForWordCanonical(word: string, style: KidStyle = "doodle")
 }
 
 export function promptForWordCanonicalV2(word: string, english: string, style: KidStyle = "doodle") {
-  // v3 NO TEXT: english only, bez Polish word w prompt — model generował napisy
+  // v3 NO TEXT: english only, bez Polish word w prompt — model generował napisy, seed deterministyczny
   const subject = `single ${english} — cute, friendly, simple, isolated`;
   return buildPrompt({ subject, style, extra: "single object centered occupies 65% frame, isolated on pure white background #FFFFFF, front view, no other objects, no shadows, no scenery, no text, no letters, no writing, flat vector" });
 }
@@ -162,4 +169,10 @@ export function promptForWordCanonicalV2(word: string, english: string, style: K
 export function promptForHero(theme: string, style: KidStyle = "doodle") {
   const subject = `cover illustration for theme`;
   return buildPrompt({ subject, theme, style, extra: "no text, no letters, no writing, no signage" });
+}
+
+// Style lock — doodle vs doodleColoring per M5 (research §4.2, methodology M5 white interior)
+export function styleForModule(moduleId: string): KidStyle {
+  if (moduleId === "words") return "doodleColoring"; // M5 kolorowanka — white interior
+  return "doodle";
 }

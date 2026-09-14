@@ -23,7 +23,7 @@ const c = { primary: "#DC2626", secondary: "#B91C1C", accent: "#EF4444", light: 
 
 export function BreathGeometryTemplate({ name, date, eko }: { name?: string; date?: string; eko?: boolean } = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : c.light }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : c.light }}>
       <PageHeader title="GEOMETRIA ODDECHU" subtitle="Oddech = fala stojaca" icon="D" color={c.primary} badge="2" heroLetter="D" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 
@@ -63,7 +63,7 @@ export function BreathGeometryTemplate({ name, date, eko }: { name?: string; dat
               <span tw="text-[8px] font-black" style={{ color: c.dark }}>{step.label}</span>
               <span tw="text-[7px] font-bold text-[#6B7280]">{step.sub}</span>
               <span tw="text-[6px] font-bold text-[#9CA3AF]">{step.desc}</span>
-              {i < 3 && <span tw="text-[10px] text-[#D1D5DB]">→</span>}
+              {i < 3 && <span tw="text-[10px] font-black text-[#D1D5DB]">-</span>}
             </div>
           ))}
         </div>

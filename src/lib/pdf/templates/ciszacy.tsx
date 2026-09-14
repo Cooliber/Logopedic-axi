@@ -1,5 +1,6 @@
 import { kidPalette } from "../theme";
 import { wordToDataUri } from "../icons";
+import { cymaticMandalaSmall, cymaticMandalaFull } from "../cymaticPatterns";
 import { CuttingLine, DottedCard, FooterBar, HierarchyBar, InstructionCard, PageHeader, ParentTip, PersonalizationBar, SelfRating, StickerStrip, XPTracker } from "./shared";
 const c = kidPalette.cisz;
 export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: string; eko?: boolean } = {}) {
@@ -8,7 +9,7 @@ export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: str
     { w: "ĆMA", pos: "P" }, { w: "CIAPKI", pos: "P" }, { w: "DŹWIĘK", pos: "P" }, { w: "LIŚĆ", pos: "K" },
   ];
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#F5F3FF" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#F5F3FF" }}>
       <PageHeader title="CISZA SWISTAKA" subtitle="Szereg ciszacy - s z c dz / si zi ci dzi - cicho" icon="S" color={c.primary} badge="3" heroLetter="S" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
       <div tw="flex gap-2 mb-3">
@@ -24,7 +25,7 @@ export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: str
       </div>
       <HierarchyBar accent={c.primary} active={3} />
       <div tw="rounded-[20px] bg-white p-4 mb-3 flex gap-4 items-center" style={{ border: "2px solid #E5E7EB" }}>
-        <img src={wordToDataUri("ŚLIMAK")!} tw="h-[100px] w-[100px] rounded-[16px] shrink-0" style={{ border: "2px solid #E5E7EB" }} />
+        <img src={wordToDataUri("ŚLIMAK")!} tw="h-[112px] w-[112px] rounded-[16px] shrink-0" style={{ border: "2px solid #E5E7EB" }} />
         <div tw="flex flex-col gap-1.5 flex-1">
           <span tw="text-[11px] font-black text-[#1A1A2E]">Swistak Cichus</span>
           <span tw="text-[10px] font-semibold text-[#1A1A2E] leading-[1.6]" style={{ letterSpacing: "0.2px" }}>
@@ -46,8 +47,8 @@ export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: str
         </div>
         <div tw="grid grid-cols-4 gap-3">
           {words.map((it) => (
-            <div key={it.w} tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5" style={{ border: "2px solid #E5E7EB", minHeight: "168px" }}>
-              <img src={wordToDataUri(it.w)!} tw="h-[96px] w-[96px] rounded-[14px] bg-white" />
+            <div key={it.w} tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5" style={{ border: "2px solid #E5E7EB", minHeight: "172px" }}>
+              <img src={wordToDataUri(it.w)!} tw="h-[112px] w-[112px] rounded-[14px] bg-white" />
               <span tw="text-[11px] font-black text-[#1A1A2E] text-center" style={{ letterSpacing: "0.3px" }}>{it.w}</span>
               <span tw="h-4 w-4 rounded-full flex items-center justify-center text-[7px] font-black" style={{ backgroundColor: "#22C55E", color: "white" }}>{it.pos}</span>
             </div>
@@ -62,10 +63,8 @@ export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: str
 
       <div tw="rounded-[20px] bg-white p-4 mb-3 flex flex-col items-center gap-2" style={{ border: "2px solid #E5E7EB" }}>
         <span tw="text-[9px] font-black tracking-widest text-[#1A1A2E]">MANDALA - pokoloruj po slowach</span>
-        <div tw="h-[96px] w-[96px] rounded-full flex items-center justify-center" style={{ border: "2.5px dashed #DDD6FE", backgroundColor: "#F5F3FF" }}>
-          <div tw="h-[64px] w-[64px] rounded-full bg-white flex items-center justify-center" style={{ border: `2px solid ${c.primary}` }}>
-            <span tw="text-[14px] font-black" style={{ color: c.primary }}>S</span>
-          </div>
+        <div tw="flex items-center justify-center mt-1">
+          <img src={cymaticMandalaSmall({ letter: "S", accent: c.primary, series: "ciszacy" })} tw="h-[112px] w-[112px]" />
         </div>
         <span tw="text-[7px] font-bold text-[#6B7280]">Wybierz 2 kolory - spkojnie</span>
       </div>
@@ -106,10 +105,8 @@ export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: str
       <div tw="rounded-[20px] bg-white p-5 mb-3 flex flex-col items-center gap-3" style={{ border: "2.5px dashed #E5E7EB" }}>
         <span tw="text-[11px] font-black tracking-widest text-[#1A1A2E]">MANDALA - skupienie po pracy</span>
         <span tw="text-[9px] font-semibold text-[#4B5563] text-center leading-[1.5]">Wybierz 2 kolory. Koloruj od srodka na zewnatrz. Oddychaj spokojnie.</span>
-        <div tw="h-[180px] w-[180px] rounded-full flex items-center justify-center" style={{ border: "3px dashed #E5E7EB", backgroundColor: "#FFFBEB" }}>
-          <div tw="h-[120px] w-[120px] rounded-full bg-white flex items-center justify-center" style={{ border: "3px solid #1A1A2E" }}>
-            <span tw="text-[28px] font-black" style={{ color: "#1A1A2E" }}>S</span>
-          </div>
+        <div tw="flex items-center justify-center">
+          <img src={cymaticMandalaFull({ letter: "S", accent: "#7C3AED", series: "ciszacy" })} tw="h-[180px] w-[180px]" />
         </div>
         <span tw="text-[7px] font-bold text-[#9CA3AF]">Po mandali: zamknij oczy, powiedz 3 slowa ktore pamietasz najlepiej.</span>
       </div>

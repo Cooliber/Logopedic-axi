@@ -25,7 +25,7 @@ const PATH_WORDS: Array<{ w: string; pos: "P" | "S" | "K"; correct: boolean }> =
 
 export function LabiryntTemplate({ name, date, eko }: Props = {}) {
   return (
-    <div tw="flex flex-col p-5 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#F0FDF4" }}>
+    <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#F0FDF4" }}>
       <PageHeader title="LABIRYNT GLOSKI" subtitle="Prowadz palcem - mow gloske na kazdym polu" icon="L" color={c.primary} badge="GRA 1" heroLetter="L" />
       <PersonalizationBar name={name} date={date} color={c.primary} />
 
@@ -83,7 +83,7 @@ export function LabiryntTemplate({ name, date, eko }: Props = {}) {
                   style={{
                     border: `2px ${isTrap ? "solid #FECACA" : `solid ${c.border}`}`,
                     backgroundColor: isTrap ? "#FEF2F2" : "white",
-                    minHeight: "168px",
+                    minHeight: "172px",
                   }}
                 >
                   <span tw="absolute left-1 top-1 h-4 w-4 rounded-full flex items-center justify-center text-[7px] font-black text-white" style={{ backgroundColor: isTrap ? "#EF4444" : c.primary }}>{idx + 1}</span>
