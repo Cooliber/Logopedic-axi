@@ -22,10 +22,13 @@ import { HarmonicBodyTemplate } from "./harmonicBody";
 import { makeThemedComponent } from "./themed";
 import { THEMES, PILOT_THEMES } from "../themes/catalog";
 import type { TemplateProps } from "../theme";
+import { ZESTAWY } from "../zagadki/data";
+import { makeZagadkiComponent } from "./zagadki";
 
 export type BaseSlug = "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm" | "plynnosc" | "planszowka" | "dialog" | "oddech" | "katalog" | "dyplom" | "naklejki" | "labirynt" | "memory" | "wyszukiwanka" | "kodowanie" | "historyjka" | "cymatic-frequencies" | "standing-waves" | "sacred-vowels" | "breath-geometry" | "harmonic-body";
+export type ZagadkiSlug = `zagadki-${string}`;
 export type ThemedSlug = `${"syczacy" | "szumiacy" | "ciszacy" | "rotacyzm"}-${string}`;
-export type TemplateSlug = BaseSlug | ThemedSlug;
+export type TemplateSlug = BaseSlug | ThemedSlug | ZagadkiSlug;
 
 const themedEntries = (() => {
   const szeregLabels: Record<string, { title: string; color: string }> = {
@@ -229,6 +232,20 @@ export const templates: Record<
     category: "cymatics",
   },
   ...themedEntries,
+  ...Object.fromEntries(
+    ZESTAWY.map((z) => [
+      z.slug,
+      {
+        title: z.title,
+        subtitle: z.subtitle,
+        icon: "?",
+        color: z.color,
+        component: makeZagadkiComponent(z.slug),
+        category: "zagadki",
+        level: z.level,
+      },
+    ])
+  ),
 };
 
 export const templateList = Object.entries(templates).map(([slug, v]) => ({ slug: slug as TemplateSlug, ...v }));

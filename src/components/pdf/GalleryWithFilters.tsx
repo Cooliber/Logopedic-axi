@@ -5,8 +5,9 @@ import { templateList } from "@/lib/pdf/templates";
 import { THEMES } from "@/lib/pdf/themes/catalog";
 import { DoodleStar, DoodleCrown, DoodleFire, DoodleTree, DoodleCloud, DoodleBalloon, DoodleGift, DoodleTrophy, DoodleHeart, DoodleApple, DoodleRocket, DoodleCake, wordToDataUri } from "@/lib/pdf/icons";
 import { BASE_WORDS } from "@/lib/pdf/themes/wordPools";
+import { ZESTAWY } from "@/lib/pdf/zagadki/data";
 
-const categories = ["wszystkie", "szeregi", "tematyczne", "plynnosc", "gry", "gry-nowe", "dialog", "oddech", "sklep", "nagrody"] as const;
+const categories = ["wszystkie", "zagadki", "szeregi", "tematyczne", "plynnosc", "gry", "gry-nowe", "dialog", "oddech", "sklep", "nagrody"] as const;
 
 const HERO_STYLE: Record<string, string> = {
   kosmos: "doodle", zwierzaki: "doodle", pojazdy: "doodle", ocean: "doodle", dinozaury: "doodle", las: "watercolor", jedzenie: "kawaii", sport: "flat", dom: "flat", ubrania: "kawaii", pogoda: "watercolor", muzyka: "flat", ogrod: "watercolor", miasto: "flat", hawaje: "watercolor", halloween: "kawaii", minecraft: "flat",
@@ -31,6 +32,7 @@ function DoodleForSlug({ slug }: { slug: string }) {
     dyplom: DoodleTrophy,
     naklejki: DoodleStar,
   };
+  if (slug.startsWith("zagadki-")) return <span className="text-[16px] font-black">?</span>;
   const Comp = map[slug] ?? DoodleStar;
   return <Comp className="h-7 w-7" style={{ color: "currentColor" }} />;
 }
@@ -137,6 +139,23 @@ export function GalleryWithFilters() {
         </div>
       </div>
 
+      {/* Zagadki teaser — zawsze gdy filtr zagadki lub wszystkie */}
+      {(active === "wszystkie" || active === "zagadki") && (
+        <div className="rounded-[18px] bg-gradient-to-r from-[#7C3AED] to-[#A855F7] p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 shadow" style={{ border: "3px solid #1A1A2E" }}>
+          <div className="flex items-center gap-3">
+            <div className="h-12 w-12 rounded-full bg-white flex items-center justify-center text-[18px] font-black text-[#7C3AED]">?</div>
+            <div>
+              <div className="text-[16px] font-black text-white leading-none">Zagadki logopedyczne — NOWOŚĆ</div>
+              <div className="text-[11px] font-bold text-white/80">70 zagadek • 16 kart A4 • s / sz / c / r — zgaduj i powtarzaj głoskę 3×</div>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <button onClick={() => setActive("zagadki")} className="rounded-full bg-white px-5 py-2.5 text-xs font-black text-[#7C3AED]">Zobacz 16 kart →</button>
+            <span className="hidden md:inline-flex rounded-full bg-black/20 px-3 py-2.5 text-xs font-black text-white">Rozbudowa: co tydzień +4 karty</span>
+          </div>
+        </div>
+      )}
+
       {/* Empty state R-27 */}
       {filtered.length === 0 && (
         <div className="rounded-[18px] bg-white p-8 text-center shadow" style={{ border: "2.5px dashed #E5E7EB" }}>
@@ -179,7 +198,27 @@ export function GalleryWithFilters() {
                   <span>Podgląd A4</span>
                   <span className="ml-auto rounded-full bg-black px-2 py-0.5 text-[9px] font-black text-white">PDF • {eko ? "EKO" : "KOLOR"}</span>
                 </div>
-                {(t as unknown as { theme?: string }).theme ? (
+                {t.category === "zagadki" ? (
+                  <div className="mt-3 flex flex-col gap-2">
+                    <div className="grid grid-cols-4 gap-1.5">
+                      {(() => {
+                        const meta = ZESTAWY.find((z) => z.slug === t.slug);
+                        const answers = meta?.zagadki.map((z) => z.odpowiedz) ?? ["SOWA", "ZEBRA", "KOSZ", "RAKIETA"];
+                        return answers.slice(0, 4).map((w) => {
+                          const src = wordToDataUri(w);
+                          return (
+                            <div key={w} className="flex h-10 items-center justify-center rounded-[10px] bg-white p-1" style={{ border: `1.8px solid ${t.color}30` }}>
+                              {src ? <img src={src} alt={w} className="h-7 w-7 object-contain" /> : <span className="text-[9px] font-black" style={{ color: t.color }}>{w.slice(0, 2)}</span>}
+                            </div>
+                          );
+                        });
+                      })()}
+                    </div>
+                    <div className="rounded-full bg-white px-2 py-1 text-center text-[9px] font-black" style={{ border: `1.5px dashed ${t.color}`, color: t.color }}>
+                      {(ZESTAWY.find((z) => z.slug === t.slug)?.zagadki.length ?? 4)} zagadek • odgadnij • powtórz 3×
+                    </div>
+                  </div>
+                ) : (t as unknown as { theme?: string }).theme ? (
                   <div className="mt-3 overflow-hidden rounded-[12px] border-[2px] border-black/10 bg-white">
                     <img
                       src={`/anim/hero/hero-${(t as unknown as { theme: string }).theme}__${{ kosmos: "doodle", zwierzaki: "doodle", pojazdy: "doodle", ocean: "doodle", dinozaury: "doodle", las: "watercolor", jedzenie: "kawaii", sport: "flat", dom: "flat", ubrania: "kawaii", pogoda: "watercolor", muzyka: "flat", ogrod: "watercolor", miasto: "flat" }[(t as unknown as { theme: string }).theme] ?? "doodle"}__schnell.png`}
