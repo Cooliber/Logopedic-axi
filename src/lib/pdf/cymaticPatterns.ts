@@ -452,6 +452,335 @@ export function vowelFormant({
   return svgDoc((patterns[vowel] || patterns.A)());
 }
 
+// ═══════════════════════════════════════════
+// MANDALA GENERATOR v2 — real Chladni mode math + sacred geometry
+// Each series maps to a distinct acoustic/visual cymatic mode:
+//   syczacy  → concentric rings + radial spokes + petal layers (sonic ripple)
+//   szumiacy → Archimedean spiral + interference ring flower (flowing breath)
+//   ciszacy  → hexagonal nodal lattice + curved Bessel lines (quiet resonance)
+//   rotacyzm → 6-fold star crown + inner mandala rose (rolling tongue)
+//
+// Layer structure per mandala:
+//   1. Outer frame (dashed ring) — coloring boundary
+//   2. Outer zone  — sacred geometry (Flower of Life / Metatron / Seed of Life / Sri Yantra)
+//   3. Middle zone — Chladni nodal lines + antinode dots
+//   4. Inner zone  — petals / curves / spirals (colored accents)
+//   5. Center      — letter in circle
+// ═══════════════════════════════════════════
+
+export function cymaticMandala({
+  size = 120,
+  letter = "S",
+  accent = "#FACC15",
+  series = "syczacy",
+  strokeWidth = 1.4,
+}: {
+  size?: number;
+  letter?: string;
+  accent?: string;
+  series?: "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm";
+  strokeWidth?: number;
+} = {}) {
+  const cx = size / 2;
+  const cy = size / 2;
+  const maxR = size / 2 - 4;
+  const e: string[] = [];
+
+  // ── 1. Outer frame ──
+  e.push(`<circle cx="${cx}" cy="${cy}" r="${maxR}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 1.5}" stroke-dasharray="6 4" opacity="0.4"/>`);
+  e.push(`<circle cx="${cx}" cy="${cy}" r="${maxR * 0.97}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.5}" opacity="0.15"/>`);
+
+  if (series === "syczacy") {
+    // ── Sibilant: concentric rings + radial spokes + flower petals ──
+    // Outer sacred: 6-petal Flower of Life (rings 0.78–0.95)
+    const folR = maxR * 0.13;
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2;
+      const fx = cx + Math.cos(a) * maxR * 0.82;
+      const fy = cy + Math.sin(a) * maxR * 0.82;
+      e.push(`<circle cx="${fx.toFixed(1)}" cy="${fy.toFixed(1)}" r="${folR}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.6}" opacity="0.18"/>`);
+    }
+    // Middle Chladni rings (4,0) mode — 5 concentric rings with varying thickness
+    for (let i = 1; i <= 5; i++) {
+      const r = (i / 5) * maxR * 0.72;
+      const sw = i === 3 ? strokeWidth * 1.3 : strokeWidth * 0.9;
+      const op = 0.22 + (i === 3 ? 0.18 : i * 0.06);
+      e.push(`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${sw.toFixed(2)}" opacity="${op.toFixed(2)}"/>`);
+    }
+    // Radial spokes — 12 lines with node dots at ring intersections
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2;
+      const thick = i % 3 === 0;
+      const x2 = cx + Math.cos(a) * maxR * 0.88;
+      const y2 = cy + Math.sin(a) * maxR * 0.88;
+      e.push(`<line x1="${cx}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${accent}" stroke-width="${(thick ? strokeWidth : strokeWidth * 0.5).toFixed(2)}" opacity="${thick ? "0.3" : "0.15"}"/>`);
+      // Node dots at 3 ring intersections per spoke
+      for (let j = 1; j <= 3; j++) {
+        const d = (j / 4) * maxR * 0.72;
+        const dotR = thick ? 2.2 + j * 0.5 : 1.4 + j * 0.3;
+        e.push(`<circle cx="${(cx + Math.cos(a) * d).toFixed(1)}" cy="${(cy + Math.sin(a) * d).toFixed(1)}" r="${dotR.toFixed(1)}" fill="${accent}" opacity="${(0.15 + j * 0.08).toFixed(2)}"/>`);
+      }
+    }
+    // Inner flower petals — 8 rounded petals between middle rings
+    for (let i = 0; i < 8; i++) {
+      const a1 = (i / 8) * Math.PI * 2;
+      const a2 = ((i + 1) / 8) * Math.PI * 2;
+      const mid = (a1 + a2) / 2;
+      const pr = maxR * 0.48;
+      const px = cx + Math.cos(mid) * pr;
+      const py = cy + Math.sin(mid) * pr;
+      const ix1 = cx + Math.cos(a1) * maxR * 0.28;
+      const iy1 = cy + Math.sin(a1) * maxR * 0.28;
+      const ix2 = cx + Math.cos(a2) * maxR * 0.28;
+      const iy2 = cy + Math.sin(a2) * maxR * 0.28;
+      e.push(`<path d="M${ix1.toFixed(1)},${iy1.toFixed(1)} Q${px.toFixed(1)},${py.toFixed(1)} ${ix2.toFixed(1)},${iy2.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth}" opacity="0.32"/>`);
+      // Mirror petal (inward-facing)
+      const ir = maxR * 0.18;
+      const ipx = cx + Math.cos(mid) * ir;
+      const ipy = cy + Math.sin(mid) * ir;
+      e.push(`<path d="M${ix1.toFixed(1)},${iy1.toFixed(1)} Q${ipx.toFixed(1)},${ipy.toFixed(1)} ${ix2.toFixed(1)},${iy2.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.6}" opacity="0.18"/>`);
+    }
+    // Antinode dots — at spoke+ring crossings in outer zone
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2 + Math.PI / 12;
+      for (let j = 4; j <= 5; j++) {
+        const d = (j / 5) * maxR * 0.72;
+        e.push(`<circle cx="${(cx + Math.cos(a) * d).toFixed(1)}" cy="${(cy + Math.sin(a) * d).toFixed(1)}" r="1.8" fill="white" stroke="${accent}" stroke-width="0.8" opacity="0.3"/>`);
+      }
+    }
+  } else if (series === "szumiacy") {
+    // ── Fricative: Archimedean spiral + interference ring flower ──
+    // Outer sacred: Metatron's Cube (13 circles + connecting lines)
+    const mcR = maxR * 0.08;
+    const mcPts: Array<{ x: number; y: number }> = [{ x: cx, y: cy }];
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2 - Math.PI / 2;
+      mcPts.push({ x: cx + Math.cos(a) * maxR * 0.85, y: cy + Math.sin(a) * maxR * 0.85 });
+    }
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2 - Math.PI / 2 + Math.PI / 6;
+      mcPts.push({ x: cx + Math.cos(a) * maxR * 0.72, y: cy + Math.sin(a) * maxR * 0.72 });
+    }
+    for (let i = 0; i < mcPts.length; i++) {
+      for (let j = i + 1; j < mcPts.length; j++) {
+        const dx = mcPts[j].x - mcPts[i].x;
+        const dy = mcPts[j].y - mcPts[i].y;
+        if (Math.sqrt(dx * dx + dy * dy) < maxR * 0.6) {
+          e.push(`<line x1="${mcPts[i].x.toFixed(1)}" y1="${mcPts[i].y.toFixed(1)}" x2="${mcPts[j].x.toFixed(1)}" y2="${mcPts[j].y.toFixed(1)}" stroke="${accent}" stroke-width="${strokeWidth * 0.3}" opacity="0.1"/>`);
+        }
+      }
+    }
+    for (const p of mcPts) {
+      e.push(`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${mcR}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.4}" opacity="0.12"/>`);
+    }
+    // Middle: interference ring flower — 6 petal-shaped rings
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2;
+      const fr = maxR * 0.42;
+      const fx = cx + Math.cos(a) * fr;
+      const fy = cy + Math.sin(a) * fr;
+      e.push(`<circle cx="${fx.toFixed(1)}" cy="${fy.toFixed(1)}" r="${(maxR * 0.28).toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.6}" opacity="0.18"/>`);
+    }
+    // Middle: concentric ring
+    e.push(`<circle cx="${cx}" cy="${cy}" r="${(maxR * 0.45).toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.8}" opacity="0.22"/>`);
+    // Inner: Archimedean spiral (5 turns)
+    const pts: string[] = [];
+    for (let i = 0; i <= 300; i++) {
+      const t = i / 300;
+      const angle = t * 5 * Math.PI * 2;
+      const r = t * maxR * 0.38;
+      pts.push(`${i === 0 ? "M" : "L"}${(cx + Math.cos(angle) * r).toFixed(1)},${(cy + Math.sin(angle) * r).toFixed(1)}`);
+    }
+    e.push(`<path d="${pts.join(" ")}" fill="none" stroke="${accent}" stroke-width="${strokeWidth}" opacity="0.35" stroke-linecap="round"/>`);
+    // Inner: leaf/petal shapes along spiral arm
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2;
+      const lr = maxR * 0.35;
+      const lx = cx + Math.cos(a) * lr;
+      const ly = cy + Math.sin(a) * lr;
+      const lpts: string[] = [];
+      for (let j = 0; j <= 24; j++) {
+        const t = j / 24;
+        const la = a + (t - 0.5) * 1.0;
+        const lrr = maxR * (0.08 + Math.sin(t * Math.PI) * 0.06);
+        lpts.push(`${j === 0 ? "M" : "L"}${(lx + Math.cos(la) * lrr).toFixed(1)},${(ly + Math.sin(la) * lrr).toFixed(1)}`);
+      }
+      e.push(`<path d="${lpts.join(" ")}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.7}" opacity="0.25" stroke-linecap="round"/>`);
+    }
+    // Antinode dots along spiral
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2;
+      const d = (0.3 + (i % 4) * 0.15) * maxR;
+      e.push(`<circle cx="${(cx + Math.cos(a) * d).toFixed(1)}" cy="${(cy + Math.sin(a) * d).toFixed(1)}" r="2" fill="${accent}" opacity="0.2"/>`);
+    }
+  } else if (series === "ciszacy") {
+    // ── Palatal: hexagonal nodal lattice + curved Bessel lines ──
+    // Outer sacred: Seed of Life (7 overlapping circles)
+    const solR = maxR * 0.15;
+    e.push(`<circle cx="${cx}" cy="${cy}" r="${solR.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.5}" opacity="0.15"/>`);
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2;
+      const sx = cx + Math.cos(a) * solR;
+      const sy = cy + Math.sin(a) * solR;
+      e.push(`<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="${solR.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.5}" opacity="0.15"/>`);
+    }
+    // Middle: hexagonal nodal lattice — 2 rings of 6 nodes + center
+    const h = maxR * 0.22;
+    const nodePoints: Array<{ x: number; y: number; ring: number }> = [{ x: cx, y: cy, ring: 0 }];
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2;
+      nodePoints.push({ x: cx + Math.cos(a) * h * 2.2, y: cy + Math.sin(a) * h * 2.2, ring: 1 });
+    }
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2 + Math.PI / 6;
+      nodePoints.push({ x: cx + Math.cos(a) * h * 4.2, y: cy + Math.sin(a) * h * 4.2, ring: 2 });
+    }
+    // Curved Bessel lines — nodal curves connecting lattice points
+    for (let i = 0; i < nodePoints.length; i++) {
+      for (let j = i + 1; j < nodePoints.length; j++) {
+        const dx = nodePoints[j].x - nodePoints[i].x;
+        const dy = nodePoints[j].y - nodePoints[i].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < h * 4.5) {
+          // Curved line via quadratic bezier (mimics Bessel nodal curve)
+          const mx = (nodePoints[i].x + nodePoints[j].x) / 2;
+          const my = (nodePoints[i].y + nodePoints[j].y) / 2;
+          const perp = Math.atan2(dy, dx) + Math.PI / 2;
+          const bulge = dist * 0.12;
+          const cpx = mx + Math.cos(perp) * bulge;
+          const cpy = my + Math.sin(perp) * bulge;
+          e.push(`<path d="M${nodePoints[i].x.toFixed(1)},${nodePoints[i].y.toFixed(1)} Q${cpx.toFixed(1)},${cpy.toFixed(1)} ${nodePoints[j].x.toFixed(1)},${nodePoints[j].y.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.5}" opacity="0.18"/>`);
+        }
+      }
+    }
+    // Concentric Bessel rings (6 thin rings)
+    for (let i = 1; i <= 6; i++) {
+      const r = (i / 6) * maxR * 0.88;
+      e.push(`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.5}" opacity="${(0.12 + i * 0.03).toFixed(2)}"/>`);
+    }
+    // Node dots — inner ring small, outer ring larger
+    for (const p of nodePoints) {
+      const dotR = p.ring === 0 ? 3.5 : p.ring === 1 ? 2.8 : 2;
+      e.push(`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${dotR}" fill="${accent}" opacity="0.22"/>`);
+      e.push(`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(dotR * 0.4).toFixed(1)}" fill="white"/>`);
+    }
+    // Inner: delicate 12-petal flower
+    for (let i = 0; i < 12; i++) {
+      const a1 = (i / 12) * Math.PI * 2;
+      const a2 = ((i + 1) / 12) * Math.PI * 2;
+      const mid = (a1 + a2) / 2;
+      const pr = maxR * 0.35;
+      const px = cx + Math.cos(mid) * pr;
+      const py = cy + Math.sin(mid) * pr;
+      const ix1 = cx + Math.cos(a1) * maxR * 0.18;
+      const iy1 = cy + Math.sin(a1) * maxR * 0.18;
+      const ix2 = cx + Math.cos(a2) * maxR * 0.18;
+      const iy2 = cy + Math.sin(a2) * maxR * 0.18;
+      e.push(`<path d="M${ix1.toFixed(1)},${iy1.toFixed(1)} Q${px.toFixed(1)},${py.toFixed(1)} ${ix2.toFixed(1)},${iy2.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.7}" opacity="0.2"/>`);
+    }
+  } else if (series === "rotacyzm") {
+    // ── Rhotic: 6-fold star crown + inner rose + Sri Yantra triangles ──
+    // Outer sacred: Sri Yantra — alternating up/down triangles
+    const triR = maxR * 0.82;
+    // Outer triangle (pointing up)
+    const t1: string[] = [];
+    for (let i = 0; i < 3; i++) {
+      const a = (i / 3) * Math.PI * 2 - Math.PI / 2;
+      t1.push(`${(cx + Math.cos(a) * triR).toFixed(1)},${(cy + Math.sin(a) * triR).toFixed(1)}`);
+    }
+    e.push(`<polygon points="${t1.join(" ")}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.6}" opacity="0.15"/>`);
+    // Inner triangle (pointing down)
+    const t2: string[] = [];
+    for (let i = 0; i < 3; i++) {
+      const a = (i / 3) * Math.PI * 2 + Math.PI / 2;
+      t2.push(`${(cx + Math.cos(a) * triR * 0.7).toFixed(1)},${(cy + Math.sin(a) * triR * 0.7).toFixed(1)}`);
+    }
+    e.push(`<polygon points="${t2.join(" ")}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.6}" opacity="0.15"/>`);
+    // Second pair of triangles (nested Sri Yantra)
+    const t3: string[] = [];
+    for (let i = 0; i < 3; i++) {
+      const a = (i / 3) * Math.PI * 2 - Math.PI / 2 + Math.PI / 6;
+      t3.push(`${(cx + Math.cos(a) * triR * 0.55).toFixed(1)},${(cy + Math.sin(a) * triR * 0.55).toFixed(1)}`);
+    }
+    e.push(`<polygon points="${t3.join(" ")}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.4}" opacity="0.12"/>`);
+    const t4: string[] = [];
+    for (let i = 0; i < 3; i++) {
+      const a = (i / 3) * Math.PI * 2 + Math.PI / 2 + Math.PI / 6;
+      t4.push(`${(cx + Math.cos(a) * triR * 0.55).toFixed(1)},${(cy + Math.sin(a) * triR * 0.55).toFixed(1)}`);
+    }
+    e.push(`<polygon points="${t4.join(" ")}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.4}" opacity="0.12"/>`);
+    // Middle: 6-fold star crown (zigzag ring)
+    const crownPts: string[] = [];
+    for (let i = 0; i < 24; i++) {
+      const a = (i / 24) * Math.PI * 2;
+      const r = i % 2 === 0 ? maxR * 0.7 : maxR * 0.55;
+      crownPts.push(`${i === 0 ? "M" : "L"}${(cx + Math.cos(a) * r).toFixed(1)},${(cy + Math.sin(a) * r).toFixed(1)}`);
+    }
+    crownPts.push("Z");
+    e.push(`<path d="${crownPts.join(" ")}" fill="none" stroke="${accent}" stroke-width="${strokeWidth}" opacity="0.3"/>`);
+    // Inner: 12 spokes with alternating thick/thin
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2;
+      const thick = i % 2 === 0;
+      const x2 = cx + Math.cos(a) * maxR * 0.55;
+      const y2 = cy + Math.sin(a) * maxR * 0.55;
+      e.push(`<line x1="${cx}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${accent}" stroke-width="${(thick ? strokeWidth : strokeWidth * 0.4).toFixed(2)}" opacity="${thick ? "0.28" : "0.12"}"/>`);
+    }
+    // Inner: 6-petal rose
+    for (let i = 0; i < 6; i++) {
+      const a1 = (i / 6) * Math.PI * 2;
+      const a2 = ((i + 1) / 6) * Math.PI * 2;
+      const mid = (a1 + a2) / 2;
+      const pr = maxR * 0.38;
+      const px = cx + Math.cos(mid) * pr;
+      const py = cy + Math.sin(mid) * pr;
+      const ix1 = cx + Math.cos(a1) * maxR * 0.15;
+      const iy1 = cy + Math.sin(a1) * maxR * 0.15;
+      const ix2 = cx + Math.cos(a2) * maxR * 0.15;
+      const iy2 = cy + Math.sin(a2) * maxR * 0.15;
+      e.push(`<path d="M${ix1.toFixed(1)},${iy1.toFixed(1)} Q${px.toFixed(1)},${py.toFixed(1)} ${ix2.toFixed(1)},${iy2.toFixed(1)}" fill="none" stroke="${accent}" stroke-width="${strokeWidth * 0.8}" opacity="0.25"/>`);
+    }
+    // Crown points — dots at star tips
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2;
+      const d = i % 2 === 0 ? maxR * 0.7 : maxR * 0.55;
+      e.push(`<circle cx="${(cx + Math.cos(a) * d).toFixed(1)}" cy="${(cy + Math.sin(a) * d).toFixed(1)}" r="${i % 2 === 0 ? 2.5 : 1.5}" fill="${accent}" opacity="0.28"/>`);
+    }
+  }
+
+  // ── 5. Center circle with letter ──
+  e.push(`<circle cx="${cx}" cy="${cy}" r="${(maxR * 0.18).toFixed(1)}" fill="white" stroke="${accent}" stroke-width="${(strokeWidth * 1.5).toFixed(2)}"/>`);
+  e.push(`<text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="central" font-family="Baloo 2, sans-serif" font-size="${(size * 0.14).toFixed(1)}" font-weight="900" fill="${accent}">${letter}</text>`);
+
+  return svgDoc(e.join(""), size);
+}
+
+// Small mandala — for inline use (96x96 equivalent)
+export function cymaticMandalaSmall({
+  letter = "S",
+  accent = "#FACC15",
+  series = "syczacy" as const,
+}: {
+  letter?: string;
+  accent?: string;
+  series?: "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm";
+} = {}) {
+  return cymaticMandala({ size: 96, letter, accent, series, strokeWidth: 1.2 });
+}
+
+// Full mandala — for full-page coloring (180x180 equivalent)
+export function cymaticMandalaFull({
+  letter = "S",
+  accent = "#FACC15",
+  series = "syczacy" as const,
+}: {
+  letter?: string;
+  accent?: string;
+  series?: "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm";
+} = {}) {
+  return cymaticMandala({ size: 180, letter, accent, series, strokeWidth: 1.6 });
+}
+
 // Cymatic pattern metadata for speech therapy mapping
 export const CYMATIC_MAP = {
   // Sibilants — high frequency, tight concentric

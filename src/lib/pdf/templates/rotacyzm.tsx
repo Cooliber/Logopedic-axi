@@ -32,15 +32,15 @@ export function RotacyzmTemplate({ name, date, eko }: { name?: string; date?: st
         </div>
         <div tw="grid grid-cols-2 gap-8">
           {words.map((it) => (
-            <div key={it.w} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `2.5px solid #1A1A2E`, boxShadow: "0 3px 0 rgba(0,0,0,0.08)", minHeight: "168px" }}>
-              <img src={wordToDataUri(it.w)!} tw="h-[108px] w-[108px] rounded-[14px] shrink-0" style={{ border: `2.5px solid ${c.primary}` }} />
+            <div key={it.w} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `2.5px solid #1A1A2E`, boxShadow: "0 3px 0 rgba(0,0,0,0.08)", minHeight: "192px" }}>
+              <img src={wordToDataUri(it.w)!} tw="h-[118px] w-[118px] rounded-[14px] shrink-0" style={{ border: `2.5px solid ${c.primary}` }} />
               <span tw="text-[12px] font-black text-[#1A1A2E] text-center leading-none tracking-tight">{it.w}</span>
               <span tw="h-5 w-5 rounded-full flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: it.pos === "P" ? "#22C55E" : it.pos === "S" ? "#F59E0B" : "#EF4444" }}>{it.pos}</span>
               <div tw="flex gap-1.5 mt-1">
-                <span tw="h-3.5 w-3.5 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
-                <span tw="h-3.5 w-3.5 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
-                <span tw="h-3.5 w-3.5 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
-                <span tw="h-3.5 w-3.5 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
+                <span tw="h-4 w-4 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
+                <span tw="h-4 w-4 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
+                <span tw="h-4 w-4 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
+                <span tw="h-4 w-4 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
               </div>
               <div tw="w-[56px] h-[1px] mt-1" style={{ borderTop: "1.8px dashed #E5E7EB" }} />
             </div>
@@ -63,7 +63,7 @@ export function RotacyzmTemplate({ name, date, eko }: { name?: string; date?: st
       <div tw="rounded-[20px] bg-white p-4 mb-3 flex flex-col items-center gap-2" style={{ border: `2.5px dashed ${c.border}` }}>
         <span tw="text-[10px] font-black tracking-widest text-[#1A1A2E]">MANDALA — skup uwagę 2 min</span>
         <span tw="text-[8px] font-bold text-[#6B7280] text-center">Koloruj od środka na zewnątrz — wybierz 2 kolory</span>
-        <img src={cymaticMandalaFull({ letter: "R", accent: c.primary, series: "rotacyzm" })} tw="h-[168px] w-[168px] mt-1" />
+        <img src={cymaticMandalaFull({ letter: "R", accent: c.primary, series: "rotacyzm" })} tw="h-[220px] w-[220px] mt-1" />
       </div>
       <div tw="flex gap-4 mb-3">
         <div tw="flex-1 rounded-[16px] bg-white p-4 flex flex-col gap-2" style={{ border: `2.5px dashed ${c.border}` }}>
