@@ -76,6 +76,31 @@ export function HistoryjkaTemplate({ name, date, eko }: Props = {}) {
         </div>
       </div>
 
+      <div tw="flex items-center justify-center gap-2 my-2" style={{ breakAfter: "page" }}>
+        <span tw="text-[7px] font-black tracking-widest text-[#9CA3AF]">- - - KONIEC STRONY 1 - przewroc kartke - - -</span>
+      </div>
+
+      <div tw="rounded-[20px] bg-white p-5 flex flex-col gap-3" style={{ border: "2.5px dashed #E5E7EB" }}>
+        <span tw="text-[11px] font-black tracking-widest text-[#1A1A2E]">STRONA 2 - dodatkowe wyzwanie</span>
+        <span tw="text-[9px] font-semibold text-[#4B5563] text-center leading-[1.5]">Pokaz karte doroslemu. Opowiedz kazde slowo 2x. Narysuj swoj wariant gry ponizej.</span>
+        <div tw="h-[200px] rounded-[16px] bg-[#F9FAFB] flex items-center justify-center" style={{ border: "2px dashed #E5E7EB" }}>
+          <span tw="text-[9px] font-bold text-[#9CA3AF]">Miejsce na rysunek / notatki terapeuty</span>
+        </div>
+        <div tw="flex gap-2">
+          <div tw="flex-1 rounded-[12px] bg-white p-3 flex flex-col gap-1" style={{ border: "1.5px solid #E5E7EB" }}>
+            <span tw="text-[7px] font-black tracking-widest text-[#6B7280]">WYNIK</span>
+            <div tw="flex gap-1 mt-1">
+              <span tw="flex-1 h-2 rounded-full bg-[#22C55E]" />
+              <span tw="flex-1 h-2 rounded-full bg-[#E5E7EB]" />
+            </div>
+            <span tw="text-[7px] font-bold text-[#6B7280]">Zaliczone ___ / 8</span>
+          </div>
+          <div tw="flex-1 rounded-[12px] bg-[#1A1A2E] p-3 flex items-center justify-center">
+            <span tw="text-[9px] font-black text-white">+10 XP za strone 2</span>
+          </div>
+        </div>
+      </div>
+
       <FooterBar text="Historyjka obrazkowa - narracja + s z c dz - A4" color={c.dark} />
     </div>
   );

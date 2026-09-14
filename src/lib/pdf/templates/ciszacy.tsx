@@ -44,10 +44,10 @@ export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: str
           <span tw="text-[9px] font-black tracking-widest text-[#1A1A2E]">8 SLOW - pokoloruj kontur</span>
           <span tw="text-[7px] font-black px-2 py-1 rounded-full text-[#4C1D95]" style={{ backgroundColor: "#F5F3FF", border: "1.5px solid #DDD6FE" }}>P = poczatek</span>
         </div>
-        <div tw="grid grid-cols-4 gap-2.5">
+        <div tw="grid grid-cols-4 gap-3">
           {words.map((it) => (
-            <div key={it.w} tw="rounded-[14px] bg-white py-3 px-2 flex flex-col items-center gap-1" style={{ border: "1.5px solid #F3F4F6" }}>
-              <img src={wordToDataUri(it.w)!} tw="h-[48px] w-[48px] rounded-[10px]" style={{ border: "1.5px solid #E5E7EB" }} />
+            <div key={it.w} tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5" style={{ border: "2px solid #E5E7EB", minHeight: "128px" }}>
+              <img src={wordToDataUri(it.w)!} tw="h-[64px] w-[64px] rounded-[12px]" style={{ border: "1.5px solid #E5E7EB" }} />
               <span tw="text-[11px] font-black text-[#1A1A2E] text-center" style={{ letterSpacing: "0.3px" }}>{it.w}</span>
               <span tw="h-4 w-4 rounded-full flex items-center justify-center text-[7px] font-black" style={{ backgroundColor: "#22C55E", color: "white" }}>{it.pos}</span>
             </div>
@@ -55,6 +55,11 @@ export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: str
         </div>
         <div tw="mt-3 flex justify-center"><span tw="text-[7px] font-bold text-[#6B7280] tracking-widest">Biala ramka = do pokolorowania</span></div>
       </div>
+
+      <div tw="flex items-center justify-center gap-2 my-2" style={{ breakAfter: "page" }}>
+        <span tw="text-[7px] font-black tracking-widest text-[#9CA3AF]">- - - KONIEC STRONY 1 - przewroc kartke - - -</span>
+      </div>
+
       <div tw="rounded-[20px] bg-white p-4 mb-3 flex flex-col items-center gap-2" style={{ border: "2px solid #E5E7EB" }}>
         <span tw="text-[9px] font-black tracking-widest text-[#1A1A2E]">MANDALA - pokoloruj po slowach</span>
         <div tw="h-[96px] w-[96px] rounded-full flex items-center justify-center" style={{ border: "2.5px dashed #DDD6FE", backgroundColor: "#F5F3FF" }}>
@@ -94,6 +99,21 @@ export function CiszacyTemplate({ name, date, eko }: { name?: string; date?: str
           <img src={wordToDataUri("ŚLIMAK")!} tw="h-[48px] w-[48px] rounded-[10px] shrink-0" style={{ border: "1.5px solid #E5E7EB" }} />
         </div>
       </div>
+      <div tw="flex items-center justify-center gap-2 my-2" style={{ breakAfter: "page" }}>
+        <span tw="text-[7px] font-black tracking-widest text-[#9CA3AF]">- - - KONIEC STRONY 2 - przewroc kartke - - -</span>
+      </div>
+
+      <div tw="rounded-[20px] bg-white p-5 mb-3 flex flex-col items-center gap-3" style={{ border: "2.5px dashed #E5E7EB" }}>
+        <span tw="text-[11px] font-black tracking-widest text-[#1A1A2E]">MANDALA - skupienie po pracy</span>
+        <span tw="text-[9px] font-semibold text-[#4B5563] text-center leading-[1.5]">Wybierz 2 kolory. Koloruj od srodka na zewnatrz. Oddychaj spokojnie.</span>
+        <div tw="h-[180px] w-[180px] rounded-full flex items-center justify-center" style={{ border: "3px dashed #E5E7EB", backgroundColor: "#FFFBEB" }}>
+          <div tw="h-[120px] w-[120px] rounded-full bg-white flex items-center justify-center" style={{ border: "3px solid #1A1A2E" }}>
+            <span tw="text-[28px] font-black" style={{ color: "#1A1A2E" }}>S</span>
+          </div>
+        </div>
+        <span tw="text-[7px] font-bold text-[#9CA3AF]">Po mandali: zamknij oczy, powiedz 3 slowa ktore pamietasz najlepiej.</span>
+      </div>
+
       <div tw="flex gap-3">
         <div tw="flex-1"><SelfRating accent={c.primary} /></div>
         <div tw="flex-1 rounded-[14px] bg-white p-3 flex flex-col gap-1" style={{ border: "1.5px solid #E5E7EB" }}><CuttingLine /><StickerStrip count={4} accent={c.primary} label="NAKLEJKI - wytnij" /></div>

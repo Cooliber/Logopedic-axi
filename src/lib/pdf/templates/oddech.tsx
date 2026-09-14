@@ -126,6 +126,28 @@ export function OddechTemplate({ name, date, eko }: { name?: string; date?: stri
         </div>
       </div>
 
+      <div tw="flex items-center justify-center gap-2 my-2" style={{ breakAfter: "page" }}>
+        <span tw="text-[7px] font-black tracking-widest text-[#9CA3AF]">- - - KONIEC STRONY 1 - przewroc kartke - - -</span>
+      </div>
+
+      <div tw="rounded-[20px] bg-white p-5 flex flex-col gap-3" style={{ border: "2.5px dashed #E5E7EB" }}>
+        <span tw="text-[11px] font-black tracking-widest text-[#1A1A2E]">STRONA 2 - poćwicz jeszcze</span>
+        <span tw="text-[9px] font-semibold text-[#4B5563] text-center leading-[1.5]">Powtorz cwiczenie z doroslym. Zapisz swoje slowa, narysuj i ocen.</span>
+        <div tw="h-[140px] rounded-[16px] bg-[#F9FAFB] flex items-center justify-center" style={{ border: "2px dashed #E5E7EB" }}>
+          <span tw="text-[9px] font-bold text-[#9CA3AF]">Miejsce na rysunek / slowa dziecka</span>
+        </div>
+        <div tw="flex gap-2">
+          <div tw="flex-1 rounded-[12px] bg-white p-3" style={{ border: "1.5px solid #E5E7EB" }}>
+            <span tw="text-[7px] font-black tracking-widest text-[#6B7280]">MOJE SLOWA</span>
+            <div tw="h-[18px] bg-white rounded-[6px] mt-2" style={{ border: "1.5px solid #E5E7EB" }} />
+            <div tw="h-[18px] bg-white rounded-[6px] mt-1" style={{ border: "1.5px solid #E5E7EB" }} />
+          </div>
+          <div tw="flex-1 rounded-[12px] bg-[#1A1A2E] p-3 flex items-center justify-center">
+            <span tw="text-[9px] font-black text-white">+10 XP strona 2</span>
+          </div>
+        </div>
+      </div>
+
       <FooterBar text="Oddech Smoka • oddech + fonacja • piórko słomka balon • A4 • codziennie 5 min" color="#991B1B" />
     </div>
   );
