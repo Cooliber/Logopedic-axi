@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+assets/output/*.png
+assets/output/*.jpg
+assets/output/*.webp
+!assets/output/.gitkeep

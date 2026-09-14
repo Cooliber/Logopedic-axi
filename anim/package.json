@@ -1,0 +1,22 @@
+{
+  "name": "anim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Generator obrazków dla dzieci via Hugging Face Inference Providers — logopedia",
+  "type": "module",
+  "scripts": {
+    "generate": "bun run src/generate.ts",
+    "batch": "bun run src/batch.ts",
+    "batch:dry": "bun run src/batch.ts --dry",
+    "manifest": "bun run src/manifest.ts",
+    "test:api": "bun run src/hf-client.ts --test"
+  },
+  "dependencies": {
+    "@huggingface/inference": "^4.13.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.5.0"
+  }
+}
