@@ -475,6 +475,7 @@ export function HierarchyBar({ accent, active = 3 }: { accent: string; active?: 
       {steps.map((s, i) => {
         const done = i < active;
         const cur = i === active;
+        const future = i > active;
         return (
           <div
             key={s}
@@ -482,6 +483,7 @@ export function HierarchyBar({ accent, active = 3 }: { accent: string; active?: 
             style={{
               backgroundColor: cur ? accent : done ? "#ECFDF5" : "#F9FAFB",
               border: `1.5px solid ${cur ? accent : done ? "#6EE7B7" : "#E5E7EB"}`,
+              opacity: future ? 0.5 : 1,
             }}
           >
             <span
@@ -491,9 +493,9 @@ export function HierarchyBar({ accent, active = 3 }: { accent: string; active?: 
                 color: cur ? accent : done ? "#FFFFFF" : "#6B7280",
               }}
             >
-              {done ? "+" : i + 1}
+              {done ? "+" : cur ? "★" : "●"}
             </span>
-            <span tw="text-[7px] font-black tracking-widest" style={{ color: cur ? "#FFFFFF" : done ? "#065F46" : "#6B7280" }}>
+            <span tw="text-[7px] font-black tracking-widest" style={{ color: cur ? "#FFFFFF" : done ? "#065F46" : "#9CA3AF" }}>
               {s}
             </span>
           </div>
