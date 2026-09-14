@@ -11,9 +11,9 @@ export const STYLE_PRESETS: Record<KidStyle, { promptSuffix: string; negativePro
   // Zawsze ten sam szablon, zmienia się tylko obiekt. Flat 2D + gruby kontur = spójne z SVG doodle.
   flashcard: {
     promptSuffix:
-      "for kids speech therapy flashcard, flat 2D illustration, thick clean black outline, rounded friendly shapes, very minimal details, soft pastel colors only, pure white background, no shading, no shadows, no gradient, no 3D, no photo, no realism, no texture, no text, no letters, no words, no writing, educational flashcard style, centered composition, high clarity, easy to color",
+      "kids speech therapy flashcard icon, flat 2D vector illustration, filled with flat soft pastel colors, thick clean black outline, rounded friendly shapes, very minimal details, plain pure white background with nothing else on it, no shading, no shadows, no gradient, no 3D, no photo, no realism, no texture, no frame, no border around the image, image only, without any text, without any letters, without any words, without any captions, without any labels, without any writing, without any watermark, without any signature, children's picture dictionary style, centered composition, high clarity",
     negativePrompt:
-      "photo, photorealistic, realistic, 3d render, gradient shading, soft shadows, busy background, scenery, complex details, dark colors, scary, creepy, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, multiple objects, frame, border",
+      "photo, photorealistic, realistic, 3d render, gradient shading, soft shadows, busy background, scenery, complex details, dark colors, scary, creepy, watermark, signature, text, letters, words, writing, signage, label, caption, font, typography, deformed, extra fingers, cropped, multiple objects, frame, border, line art, coloring page, black and white",
   },
   doodle: {
     promptSuffix:

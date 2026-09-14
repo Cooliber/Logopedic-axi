@@ -10,6 +10,9 @@ function hashWord(word: string): number {
   return h % 4294967296;
 }
 
+// Sól wersji stylu — podbicie wymusza nowe obrazy przy zmianie promptu (stary seed = stary wynik)
+const STYLE_SEED_SALT = 0x0f1a5c;
+
 export const promptFactory = {
   forWord(word: string, opts: PromptOpts = {}) {
     // Kanon słów: flashcard lock — spójny styl z SVG doodle na kartach.
@@ -18,7 +21,7 @@ export const promptFactory = {
     const en = opts.english ?? word.toLowerCase();
     const subject = `simple cute illustration of a single ${en}`;
     const extra = "single object, centered, occupies 55% of frame, front view, no other objects, isolated on pure white background";
-    const seed = opts.seed ?? hashWord(word);
+    const seed = opts.seed ?? ((hashWord(word) ^ STYLE_SEED_SALT) >>> 0);
     const { prompt, negative_prompt } = buildPrompt({ subject, style, extra });
     return { prompt, negative_prompt, seed };
   },
@@ -27,7 +30,7 @@ export const promptFactory = {
     const style = opts.style ?? "doodle";
     const subject = `wide banner cover illustration`;
     const extra = "wide banner 16:9, 3 elements, no text, no letters, no writing, no signage";
-    const seed = opts.seed ?? hashWord(theme);
+    const seed = opts.seed ?? ((hashWord(theme) ^ STYLE_SEED_SALT) >>> 0);
     return { ...buildPrompt({ subject, theme, style, extra }), seed };
   },
 
