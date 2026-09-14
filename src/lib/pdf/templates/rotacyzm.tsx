@@ -33,7 +33,11 @@ export function RotacyzmTemplate({ name, date, eko }: { name?: string; date?: st
         <div tw="grid grid-cols-4 gap-8">
           {words.map((it) => (
             <div key={it.w} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `1.8px dashed #E5E7EB`, minHeight: "192px", backgroundColor: "#FFFFFF" }}>
-              <img src={wordToDataUri(it.w)!} tw="h-[132px] w-[132px] rounded-[14px] shrink-0" style={{ border: `1.5px solid #E5E7EB`, objectFit: "cover" as any }} />
+              {wordToDataUri(it.w) ? (
+                <img src={wordToDataUri(it.w)!} tw="h-[132px] w-[132px] rounded-[14px] shrink-0" style={{ border: `1.5px solid #E5E7EB`, objectFit: "cover" as any }} />
+              ) : (
+                <span tw="h-[132px] w-[132px] rounded-[14px] bg-white flex items-center justify-center text-[24px] font-black shrink-0" style={{ border: `1.5px solid #E5E7EB`, color: c.primary }}>{it.w.charAt(0)}</span>
+              )}
               <span tw="text-[12px] font-black text-[#1A1A2E] text-center leading-none tracking-tight">{it.w}</span>
               <span tw="h-5 w-5 rounded-full flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: it.pos === "P" ? "#22C55E" : it.pos === "S" ? "#F59E0B" : "#EF4444" }}>{it.pos}</span>
               <div tw="flex gap-1.5 mt-1">
