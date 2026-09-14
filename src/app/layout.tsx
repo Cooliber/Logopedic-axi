@@ -15,9 +15,16 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Logopedia • Karty Pracy — Dodle, Grywalizacja, PDF do Druku",
+  title: "Logopedia • Biblioteka Kart Pracy — 67 PDF do Druku",
   description:
-    "Kolorowe karty logopedyczne dla dzieci: szeregi syczący/szumiący/ciszący, rotacyzm, płynność, gry planszowe, dialog i oddech. PDF A4 gotowe do druku — pdfcn + Takumi.",
+    "67 kolorowych kart logopedycznych dla dzieci: szeregi syczący/szumiący/ciszący, rotacyzm, płynność, gry planszowe, dialog, oddech + 56 tematycznych (kosmos, zwierzaki, ocean...). PDF A4, personalizacja imienia, tryb EKO, gotowe do laminowania.",
+  openGraph: {
+    title: "Logopedia • Biblioteka 67 Kart PDF",
+    description: "Dodle zamiast nudnych tabel. Pobierz PDF A4 za darmo — kolor + EKO, XP i naklejki.",
+    locale: "pl_PL",
+    type: "website",
+  },
+  keywords: ["logopedia", "karty pracy", "PDF", "szereg syczący", "rotacyzm", "gry logopedyczne", "do druku"],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
