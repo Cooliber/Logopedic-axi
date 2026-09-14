@@ -75,6 +75,7 @@ export const tokens = {
     minBodyPt: 11,
     lineHeight: 1.6,
     letterSpacing: "0.3px",
+    wordSpacing: "+25%", // Galliussi 2020, Perea 2021 — reading accuracy
   },
 } as const;
 
