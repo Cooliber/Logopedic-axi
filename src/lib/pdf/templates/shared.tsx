@@ -1,7 +1,3 @@
-// Shared dodle components for Takumi JSX (uses tw prop)
-// High-quality kid experience: personalization, multi-level, multisensory, deep gamification
-// Hybrid icons: word pics via icons.tsx dataURI, UI doodles via react-doodle-icons (MIT)
-
 import { cymaticMandalaSmall } from "../cymaticPatterns";
 
 export function PageHeader({
@@ -227,8 +223,6 @@ export function CuttingLine() {
   );
 }
 
-// 3-line guide dla klas 1-2 — 14mm = 52px, DeskRated §4.1, research worksheet 2026-09-14
-// Gorne/dolne lita 0.8px solid, srodkowa przerywana — dziecko pisze miedzy liniami
 export function RuledLines({ lines = 2, accent = "#9CA3AF" }: { lines?: number; accent?: string }) {
   return (
     <div tw="flex flex-col gap-2">
@@ -493,7 +487,7 @@ export function HierarchyBar({ accent, active = 3 }: { accent: string; active?: 
                 color: cur ? accent : done ? "#FFFFFF" : "#6B7280",
               }}
             >
-              {done ? "+" : cur ? "★" : "●"}
+              {done ? "+" : cur ? "*" : "-"}
             </span>
             <span tw="text-[7px] font-black tracking-widest" style={{ color: cur ? "#FFFFFF" : done ? "#065F46" : "#9CA3AF" }}>
               {s}

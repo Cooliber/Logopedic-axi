@@ -1,5 +1,3 @@
-// Template 4: Breath Geometry — how breath creates standing waves
-// 2 pages A4: breath-wave theory + breathing exercises
 import { kidPalette } from "../theme";
 import {
   standingWave,

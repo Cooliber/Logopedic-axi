@@ -44,12 +44,10 @@ export function PlanszowkaTemplate({ name, date, eko }: { name?: string; date?: 
     "META",
   ];
 
-  // 3+1 palette §3.2 — primary/secondary/accent + dark, nie tęcza 6
   const colors = [c.primary, c.secondary, c.accent] as const;
   const fieldBg = (i: number, isStart: boolean, isMeta: boolean) => {
     if (isStart) return "#22C55E";
     if (isMeta) return c.primary;
-    // co 3 pola rotacja 3 kolorów, jasne tło 12% opacity via light
     const idx = i % 3;
     return idx === 0 ? "#FFF0F5" : idx === 1 ? "#EFF6FF" : "#FFFBEB";
   };

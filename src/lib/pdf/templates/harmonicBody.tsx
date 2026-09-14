@@ -1,5 +1,3 @@
-// Template 5: Harmonic Body — sound frequencies and the body
-// 3 pages A4: frequency-body map + cell resonance + sound healing
 import { kidPalette } from "../theme";
 import {
   standingWave,

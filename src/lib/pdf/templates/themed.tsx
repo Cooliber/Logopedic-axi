@@ -112,21 +112,21 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props
           <span tw="text-[11px] font-black tracking-widest text-[#1A1A2E]">8 SŁÓW — pokoloruj gruby kontur</span>
           <span tw="text-[7px] font-black px-2 py-1 rounded-full text-white" style={{ backgroundColor: t.color }}>{szereg.toUpperCase()}</span>
         </div>
-        <div tw="grid grid-cols-4 gap-6">
+        <div tw="grid grid-cols-2 gap-8">
           {words.map((it) => (
-            <div key={it.w + it.pos} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `2.5px solid #1A1A2E`, boxShadow: "0 3px 0 rgba(0,0,0,0.08)", minHeight: "184px" }}>
+            <div key={it.w + it.pos} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `2.5px solid #1A1A2E`, boxShadow: "0 3px 0 rgba(0,0,0,0.08)", minHeight: "168px" }}>
               {imgFor(it.w) ? (
-                <img src={imgFor(it.w)!} tw="h-[118px] w-[118px] rounded-[14px] bg-white shrink-0" style={{ border: `2.5px solid ${c.primary}` }} />
+                <img src={imgFor(it.w)!} tw="h-[108px] w-[108px] rounded-[14px] bg-white shrink-0" style={{ border: `2.5px solid ${c.primary}` }} />
               ) : (
-                <span tw="h-[118px] w-[118px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black shrink-0" style={{ border: `2.5px solid #1A1A2E`, color: c.primary }}>{it.w.charAt(0)}</span>
+                <span tw="h-[108px] w-[108px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black shrink-0" style={{ border: `2.5px solid #1A1A2E`, color: c.primary }}>{it.w.charAt(0)}</span>
               )}
               <span tw="text-[12px] font-black text-[#1A1A2E] text-center leading-none tracking-tight">{it.w}</span>
               <span tw="h-5 w-5 rounded-full flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: it.pos === "P" ? "#22C55E" : it.pos === "S" ? "#F59E0B" : "#EF4444" }}>{it.pos}</span>
               <div tw="flex gap-1.5 mt-1">
-                <span tw="h-3 w-3 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
-                <span tw="h-3 w-3 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
-                <span tw="h-3 w-3 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
-                <span tw="h-3 w-3 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
+                <span tw="h-3.5 w-3.5 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
+                <span tw="h-3.5 w-3.5 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
+                <span tw="h-3.5 w-3.5 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
+                <span tw="h-3.5 w-3.5 rounded-full bg-white" style={{ border: "1.8px solid #E5E7EB" }} />
               </div>
               <div tw="w-[56px] h-[1px] mt-1" style={{ borderTop: "1.8px dashed #E5E7EB" }} />
             </div>

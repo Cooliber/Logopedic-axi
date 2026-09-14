@@ -1,5 +1,3 @@
-// Template 2: Standing Waves — Chladni pattern tracing exercises
-// 2 pages A4: theory + tracing practice
 import { kidPalette } from "../theme";
 import {
   standingWave,

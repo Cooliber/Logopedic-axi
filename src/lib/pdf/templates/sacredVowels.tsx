@@ -1,5 +1,3 @@
-// Template 3: Sacred Vowels — Polish vowels as cymatic geometry
-// 3 pages A4: vowel map + formant exercises + body resonance
 import { kidPalette } from "../theme";
 import {
   vowelFormant,

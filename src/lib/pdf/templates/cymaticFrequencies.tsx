@@ -1,5 +1,3 @@
-// Template 1: Cymatic Frequencies — maps speech sounds to cymatic geometry
-// 3 pages A4: cover + phoneme map + exercises
 import { kidPalette } from "../theme";
 import {
   concentricCircles,
