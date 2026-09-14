@@ -113,7 +113,7 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images, profile
           <span tw="text-[11px] font-black tracking-widest text-[#1A1A2E]">8 SŁÓW — pokoloruj gruby kontur</span>
           <span tw="text-[7px] font-black px-2 py-1 rounded-full text-white" style={{ backgroundColor: t.color }}>{szereg.toUpperCase()}</span>
         </div>
-        <div tw="grid grid-cols-2 gap-8">
+        <div tw="grid grid-cols-4 gap-8">
           {words.map((it) => (
             <div key={it.w + it.pos} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `2.5px solid #1A1A2E`, boxShadow: "0 3px 0 rgba(0,0,0,0.08)", minHeight: "192px" }}>
               {imgFor(it.w) ? (

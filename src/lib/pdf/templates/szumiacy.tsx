@@ -35,7 +35,7 @@ export function SzumiacyTemplate({ name, date, eko }: { name?: string; date?: st
           <span tw="text-[11px] font-black tracking-widest text-[#1A1A2E]">8 SŁÓW — pokoloruj gruby kontur</span>
           <span tw="text-[7px] font-black px-2 py-1 rounded-full text-white" style={{ backgroundColor: c.primary }}>P = początek • K = koniec</span>
         </div>
-        <div tw="grid grid-cols-2 gap-8">
+        <div tw="grid grid-cols-4 gap-8">
           {words.map((it) => (
             <div key={it.w} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `2.5px solid #1A1A2E`, boxShadow: "0 3px 0 rgba(0,0,0,0.08)", minHeight: "192px" }}>
               <img src={wordToDataUri(it.w)!} tw="h-[118px] w-[118px] rounded-[14px] shrink-0" style={{ border: `2.5px solid ${c.primary}` }} />
