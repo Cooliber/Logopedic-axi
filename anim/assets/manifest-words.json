@@ -2,11 +2,11 @@
   {
     "word": "KOSZ",
     "file": "kosz.png",
-    "prompt": "a cute single centered object for Polish word \"KOSZ\" — cute doodle icon, child-friendly, white background for children, single object, centered, white background, no theme background, no text, doodle style, hand-drawn, thick black outline, pastel colors, white background, simple shapes, children's book illustration, kawaii, friendly, no shadows",
-    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, deformed, extra fingers, cropped, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "simple cute illustration of a single basket, single object, centered, occupies 55% of frame, front view, no other objects, isolated on pure white background, for kids speech therapy flashcard, flat 2D illustration, thick clean black outline, rounded friendly shapes, very minimal details, soft pastel colors only, pure white background, no shading, no shadows, no gradient, no 3D, no photo, no realism, no texture, no text, no letters, no words, no writing, educational flashcard style, centered composition, high clarity, easy to color",
+    "negative_prompt": "photo, photorealistic, realistic, 3d render, gradient shading, soft shadows, busy background, scenery, complex details, dark colors, scary, creepy, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, multiple objects, frame, border, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "dry": true,
-    "createdAt": "2026-09-07T16:21:41.424Z",
+    "createdAt": "2026-09-14T19:13:01.141Z",
     "bytes": 350949,
     "latencyMs": 4772,
     "ok": true
@@ -14,11 +14,11 @@
   {
     "word": "LIŚĆ",
     "file": "lisc.png",
-    "prompt": "a cute single centered object for Polish word \"LIŚĆ\" — cute doodle icon, child-friendly, white background for children, single object, centered, white background, no theme background, no text, doodle style, hand-drawn, thick black outline, pastel colors, white background, simple shapes, children's book illustration, kawaii, friendly, no shadows",
-    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, deformed, extra fingers, cropped, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "simple cute illustration of a single leaf, single object, centered, occupies 55% of frame, front view, no other objects, isolated on pure white background, for kids speech therapy flashcard, flat 2D illustration, thick clean black outline, rounded friendly shapes, very minimal details, soft pastel colors only, pure white background, no shading, no shadows, no gradient, no 3D, no photo, no realism, no texture, no text, no letters, no words, no writing, educational flashcard style, centered composition, high clarity, easy to color",
+    "negative_prompt": "photo, photorealistic, realistic, 3d render, gradient shading, soft shadows, busy background, scenery, complex details, dark colors, scary, creepy, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, multiple objects, frame, border, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "dry": true,
-    "createdAt": "2026-09-07T16:21:41.424Z",
+    "createdAt": "2026-09-14T19:13:01.142Z",
     "bytes": 80315,
     "latencyMs": 3919,
     "ok": true

@@ -4,9 +4,17 @@
 
 import { THEME_STYLE_HINT } from "./config.js";
 
-export type KidStyle = "doodle" | "doodleColoring" | "kawaii" | "watercolor" | "flat" | "clay";
+export type KidStyle = "doodle" | "doodleColoring" | "kawaii" | "watercolor" | "flat" | "clay" | "flashcard";
 
 export const STYLE_PRESETS: Record<KidStyle, { promptSuffix: string; negativePrompt: string }> = {
+  // FLASHCARD — kanon dla ikon słów na kartach pracy (lock stylu z audytu koherencji).
+  // Zawsze ten sam szablon, zmienia się tylko obiekt. Flat 2D + gruby kontur = spójne z SVG doodle.
+  flashcard: {
+    promptSuffix:
+      "for kids speech therapy flashcard, flat 2D illustration, thick clean black outline, rounded friendly shapes, very minimal details, soft pastel colors only, pure white background, no shading, no shadows, no gradient, no 3D, no photo, no realism, no texture, no text, no letters, no words, no writing, educational flashcard style, centered composition, high clarity, easy to color",
+    negativePrompt:
+      "photo, photorealistic, realistic, 3d render, gradient shading, soft shadows, busy background, scenery, complex details, dark colors, scary, creepy, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, multiple objects, frame, border",
+  },
   doodle: {
     promptSuffix:
       "doodle style, hand-drawn, thick black outline 2.5px, vibrant pastel colors, pure white background #FFFFFF, isolated centered object occupies 60% frame, detailed illustration, expressive features, soft pastel shading, children's book illustration, rounded 12px, dashed border, kawaii, friendly, distinctive, recognizable silhouette at small size, no text, no letters, no words, no writing, no signage",
@@ -66,8 +74,10 @@ export function buildPrompt({ subject, theme, style = "doodle", extra }: PromptI
   const preset = STYLE_PRESETS[style];
   const themeHint = theme ? THEME_STYLE_HINT[theme] ?? theme : "";
   // FLUX = natural language, zdania. SDXL = tag list — tu generujemy natural language (uniwersalny)
+  // Gdy subject już jest opisem ilustracji (flashcard/hero/canonical), nie wrapuj w "a cute ... for children" — unika duplikatów typu "a cute simple cute illustration"
+  const head = /illustration|object|icon|cover|banner/i.test(subject) ? subject : `a cute ${subject} for children`;
   const parts = [
-    `a cute ${subject} for children`,
+    head,
     themeHint ? `in a ${themeHint} setting` : "",
     extra ?? "",
     preset.promptSuffix,
@@ -96,6 +106,9 @@ export const PILOT_PROMPTS: Array<PromptInput & { id: string; word?: string }> =
   { id: "hero-muzyka", subject: "happy kids playing instruments — guitar and drum and trumpet", theme: "muzyka", style: "flat" },
   { id: "hero-ogrod", subject: "beautiful garden with flowers and vegetables and ladybug", theme: "ogrod", style: "watercolor" },
   { id: "hero-miasto", subject: "friendly city street with shops and tram and houses", theme: "miasto", style: "flat" },
+  { id: "hero-hawaje", subject: "tropical Hawaii beach with palm tree, hibiscus flower, smiling sun and gentle waves", theme: "hawaje", style: "watercolor" },
+  { id: "hero-halloween", subject: "cute friendly Halloween pumpkins and smiling ghost with candy, not scary", theme: "halloween", style: "kawaii" },
+  { id: "hero-minecraft", subject: "friendly blocky minecraft grass block and pickaxe, cute pixel style, not scary", theme: "minecraft", style: "flat" },
   // słowa — ikonki do Kart Pracy (zastępują / uzupełniają wordSvg)
   { id: "word-SOWA", word: "SOWA", subject: "cute fluffy owl with big round eyes", theme: "las", style: "doodle" },
   { id: "word-RAKIETA", word: "RAKIETA", subject: "cartoon rocket with window and fins, smiling", theme: "kosmos", style: "doodle" },

@@ -2,6 +2,10 @@ import { CiszacyTemplate } from "./ciszacy";
 import { DialogTemplate } from "./dialog";
 import { DyplomTemplate } from "./dyplom";
 import { KatalogTemplate } from "./katalog";
+import { KodowanieTemplate } from "./kodowanie";
+import { LabiryntTemplate } from "./labirynt";
+import { MemoryTemplate } from "./memory";
+import { HistoryjkaTemplate } from "./historyjka";
 import { NaklejkiTemplate } from "./naklejki";
 import { OddechTemplate } from "./oddech";
 import { PlanszowkaTemplate } from "./planszowka";
@@ -9,11 +13,12 @@ import { PlynnoscTemplate } from "./plynnosc";
 import { RotacyzmTemplate } from "./rotacyzm";
 import { SzumiacyTemplate } from "./szumiacy";
 import { SyczacyTemplate } from "./syczacy";
+import { WyszukiwankaTemplate } from "./wyszukiwanka";
 import { makeThemedComponent } from "./themed";
 import { THEMES, PILOT_THEMES } from "../themes/catalog";
 import type { TemplateProps } from "../theme";
 
-export type BaseSlug = "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm" | "plynnosc" | "planszowka" | "dialog" | "oddech" | "katalog" | "dyplom" | "naklejki";
+export type BaseSlug = "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm" | "plynnosc" | "planszowka" | "dialog" | "oddech" | "katalog" | "dyplom" | "naklejki" | "labirynt" | "memory" | "wyszukiwanka" | "kodowanie" | "historyjka";
 export type ThemedSlug = `${"syczacy" | "szumiacy" | "ciszacy" | "rotacyzm"}-${string}`;
 export type TemplateSlug = BaseSlug | ThemedSlug;
 
@@ -137,6 +142,46 @@ export const templates: Record<
     color: "#06D6A0",
     component: NaklejkiTemplate,
     category: "nagrody",
+  },
+  labirynt: {
+    title: "Labirynt Głoski",
+    subtitle: "Prowadź palcem — s z c dz vs sz/cz",
+    icon: "🧭",
+    color: "#2D6A4F",
+    component: LabiryntTemplate,
+    category: "gry-nowe",
+  },
+  memory: {
+    title: "Memory Głoski",
+    subtitle: "Dopasuj parę — 12 kart do wycięcia",
+    icon: "🃏",
+    color: "#C2410C",
+    component: MemoryTemplate,
+    category: "gry-nowe",
+  },
+  wyszukiwanka: {
+    title: "Wyszukiwanka Słów",
+    subtitle: "Znajdź 8 słów — 10×10 siatka",
+    icon: "🔍",
+    color: "#FACC15",
+    component: WyszukiwankaTemplate,
+    category: "gry-nowe",
+  },
+  kodowanie: {
+    title: "Kodowanie Kolorem",
+    subtitle: "P/S/K — zielony / żółty / czerwony",
+    icon: "🎨",
+    color: "#7C3AED",
+    component: KodowanieTemplate,
+    category: "gry-nowe",
+  },
+  historyjka: {
+    title: "Historyjka Obrazkowa",
+    subtitle: "4 kadry — ułóż i opowiedz",
+    icon: "📖",
+    color: "#FACC15",
+    component: HistoryjkaTemplate,
+    category: "gry-nowe",
   },
   ...themedEntries,
 };

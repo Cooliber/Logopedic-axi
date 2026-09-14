@@ -18,7 +18,7 @@ export default function Home() {
           </div>
           <div className="hidden items-center gap-2 md:flex">
             <span className="rounded-full bg-[#FEF9C3] px-3 py-1.5 text-xs font-black text-[#713F12]" style={{ border: "2px solid #FDE68A" }}>
-              67 szablonów (11 bazowych + 56 tematycznych) • A4 • EKO • pełne pokrycie
+              84 szablony (16 bazowych + 68 tematycznych) • A4 • EKO • 5 nowych gier
             </span>
             <a href="/pobierz" className="rounded-full bg-[#1A1A2E] px-4 py-1.5 text-xs font-black text-white">
               Katalog PDF ↓
@@ -71,7 +71,7 @@ export default function Home() {
                 href="#karty"
                 className="rounded-full bg-[#1A1A2E] px-6 py-3 text-sm font-black text-white shadow hover:brightness-110"
               >
-                Zobacz 67 kart ↓
+                Zobacz 84 karty ↓
               </a>
               <a
                 href="/kreator"
@@ -135,7 +135,7 @@ export default function Home() {
         <div className="mb-6 flex items-end justify-between">
           <div>
             <h3 className="text-[22px] font-black tracking-tight text-[#1A1A2E]">Wszystkie karty pracy</h3>
-            <p className="text-sm font-semibold text-[#6B7280]">67 szablonów PDF (11 bazowych + 56 tematycznych — pełne pokrycie 14 tematów × 4 szeregi) • filtr po kategorii + temacie (doodle) • personalizuj • EKO • HF obrazy w drodze</p>
+            <p className="text-sm font-semibold text-[#6B7280]">84 szablony (16 bazowych + 68 tematycznych — 17 tematów × 4 szeregi + 5 gier) • filtr po kategorii + temacie • personalizuj • EKO • HF obrazy</p>
           </div>
           <span className="hidden rounded-full bg-white px-4 py-2 text-xs font-black shadow md:block" style={{ border: "2px solid #E5E7EB" }}>
             Dodle • rounded 22px • dashed • stickers • XP

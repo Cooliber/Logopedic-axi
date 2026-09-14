@@ -16,7 +16,10 @@ export type ThemeId =
   | "pogoda"
   | "muzyka"
   | "ogrod"
-  | "miasto";
+  | "miasto"
+  | "hawaje"
+  | "halloween"
+  | "minecraft";
 
 export type Theme = {
   id: ThemeId;
@@ -45,6 +48,9 @@ export const THEMES: Theme[] = [
   { id: "muzyka", label: "Muzyka", labelPlural: "Muzyka", emoji: "🎵", doodle: "M", color: "#7C3AED", light: "#EDE9FE", blurb: "Instrumenty i rytm", ageHint: "4-8" },
   { id: "ogrod", label: "Ogród", labelPlural: "Ogród", emoji: "🌷", doodle: "O", color: "#15803D", light: "#DCFCE7", blurb: "Kwiaty, warzywa, owady", ageHint: "3-6" },
   { id: "miasto", label: "Miasto", labelPlural: "Miasto", emoji: "🏙️", doodle: "M", color: "#334155", light: "#F1F5F9", blurb: "Ulice, sklepy, park", ageHint: "4-8" },
+  { id: "hawaje", label: "Hawaje", labelPlural: "Hawaje", emoji: "🌺", doodle: "H", color: "#FF6B35", light: "#FFF7ED", blurb: "Tropikalna wyspa, palmy i fale", ageHint: "4-8" },
+  { id: "halloween", label: "Halloween", labelPlural: "Halloween", emoji: "🎃", doodle: "H", color: "#FF8C42", light: "#FFF2E6", blurb: "Dynki, duchy i cukierki", ageHint: "4-8" },
+  { id: "minecraft", label: "Minecraft", labelPlural: "Minecraft", emoji: "⛏️", doodle: "M", color: "#5CB85C", light: "#E8F5E9", blurb: "Klocki, przygoda i budowanie", ageHint: "5-9" },
 ];
 
 export const themeById = (id: string) => THEMES.find((t) => t.id === id);
@@ -57,7 +63,7 @@ export const THEME_IDS = THEMES.map((t) => t.id);
 // Sesja 3: dom, ubrania, pogoda, muzyka — kolejne 16 (razem 48)
 // Sesja 4: ogrod, miasto — final 8 (razem 56 tematycznych = pełne pokrycie 14×4)
 // Inny agent generuje images via HuggingFace text-to-image — konstelacje uzupełniamy równolegle.
-export const PILOT_THEMES: ThemeId[] = ["kosmos", "zwierzaki", "pojazdy", "ocean", "dinozaury", "las", "jedzenie", "sport", "dom", "ubrania", "pogoda", "muzyka", "ogrod", "miasto"];
+export const PILOT_THEMES: ThemeId[] = ["kosmos", "zwierzaki", "pojazdy", "ocean", "dinozaury", "las", "jedzenie", "sport", "dom", "ubrania", "pogoda", "muzyka", "ogrod", "miasto", "hawaje", "halloween", "minecraft"];
 export const NEXT_THEMES: ThemeId[] = [];
 
 export type SzeregId = "syczacy" | "szumiacy" | "ciszacy" | "rotacyzm";

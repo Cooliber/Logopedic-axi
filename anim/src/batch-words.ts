@@ -5,8 +5,8 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import "dotenv/config";
 import { generateImage } from "./hf-client.js";
-import { buildPrompt, type KidStyle } from "./prompts.js";
 import { MODELS, DEFAULTS } from "./config.js";
+import { promptFactory } from "./core/promptFactory.js";
 
 const args = process.argv.slice(2);
 const isDry = args.includes("--dry");
@@ -29,6 +29,21 @@ const TOP_MISSING_CANONICAL = [
 // deduplicate keep order
 const TOP_DEDUP = [...new Set(TOP_MISSING_CANONICAL)];
 
+// EN map — prompt bez polskiego słowa (flashcard lock: model nie rysuje napisów)
+const EN_DICT: Record<string, string> = {
+  KOSZ: "basket", LIŚĆ: "leaf", ĆMA: "moth", DŹWIĘK: "sound waves", KOŚĆ: "bone", MUR: "brick wall",
+  MIŚ: "teddy bear", ŚLIMAK: "snail", ŚNIEG: "snowflake", TOR: "train track", SOK: "juice glass",
+  KOS: "blackbird", LAS: "pine forest", CIENIE: "soft shadows", CEBULA: "onion", CZEKOLADA: "chocolate bar",
+  RÓŻA: "rose flower", SOWA: "owl", ŻABA: "frog", DŻUNGLA: "jungle", BRAMA: "gate", RYBA: "fish",
+  ROWER: "bicycle", GRZYB: "mushroom", SZYSZKA: "pine cone", ANANAS: "pineapple", CZOSNEK: "garlic",
+  ŚLIWKA: "plum", SANKI: "sled", REX: "t-rex", SMOK: "dragon", SKAŁA: "rock", SOSNA: "pine tree",
+  SARNA: "deer", RYŚ: "lynx", SALON: "living room", SOFA: "sofa", ZASŁONA: "curtain",
+  SUKIENKA: "dress", SANDAŁ: "sandal", SŁOŃCE: "sun", SZRON: "frost", SAKSOFON: "saxophone",
+  CYMBAŁ: "cymbal", SKLEP: "shop", RATUSZ: "town hall", ZĄB: "tooth", STADO: "herd of animals",
+  SZKIELET: "skeleton", MYSZ: "mouse", ŻÓŁW: "turtle", ŻELKI: "gummy bears", ŻUREK: "soup bowl",
+  KORZEŃ: "tree root", TORNADO: "tornado", WIATR: "wind", ORKIESTRA: "orchestra",
+};
+
 // Jeśli --all, czytaj wszystkie distinct z wordPools via dynamic import (logopedia src)
 async function getAllDistinctWords(): Promise<string[]> {
   // import z logopedia src (ts) — użyj ścieżki względnej
@@ -45,10 +60,11 @@ async function getAllDistinctWords(): Promise<string[]> {
   return [...set].sort();
 }
 
-function wordToCanonicalPrompt(word:string): {prompt:string, negative_prompt:string} {
-  // canonical: single object, white bg, no theme
-  const subject = `single centered object for Polish word "${word}" — cute doodle icon, child-friendly, white background`;
-  return buildPrompt({ subject, style: "doodle" as KidStyle, extra: "single object, centered, white background, no theme background, no text" });
+function wordToCanonicalPrompt(word: string): { prompt: string; negative_prompt: string } {
+  // Flashcard lock: english-only, jeden obiekt, białe tło — spójny zestaw z kartami pracy
+  const en = EN_DICT[word];
+  if (!en) return promptFactory.forWord(word, { english: word.toLowerCase() });
+  return promptFactory.forWord(word, { english: en });
 }
 
 async function main(){
@@ -104,7 +120,7 @@ async function main(){
       continue;
     }
 
-    const res = await generateImage({prompt, negative_prompt, model: modelId, width:1024, height:1024, num_inference_steps:4, guidance_scale:3.5}, outPath);
+    const res = await generateImage({prompt, negative_prompt, model: modelId, width:512, height:512, num_inference_steps:4, guidance_scale:3.5}, outPath);
     if(res.ok){
       console.log(`  OK ${res.bytes} bytes ${res.latencyMs}ms`);
       fs.copyFileSync(outPath, publicPath);

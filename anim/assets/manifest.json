@@ -1,99 +1,99 @@
 [
   {
     "id": "hero-kosmos",
-    "prompt": "a cute friendly rocket with big eyes flying among smiling planets and stars for children, in a space, rockets, planets, stars, deep navy and purple setting, doodle style, hand-drawn, thick black outline, pastel colors, white background, simple shapes, children's book illustration, kawaii, friendly, no shadows",
-    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, deformed, extra fingers, cropped, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute friendly rocket with big eyes flying among smiling planets and stars for children, in a space, rockets, planets, stars, deep navy and purple setting, doodle style, hand-drawn, thick black outline 2.5px, vibrant pastel colors, pure white background #FFFFFF, isolated centered object occupies 60% frame, detailed illustration, expressive features, soft pastel shading, children's book illustration, rounded 12px, dashed border, kawaii, friendly, distinctive, recognizable silhouette at small size, no text, no letters, no words, no writing, no signage",
+    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, background scenery, multiple objects, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-kosmos__doodle__schnell.png",
     "bytes": 746820,
-    "createdAt": "2026-09-08T16:25:39.929Z"
+    "createdAt": "2026-09-14T18:54:44.060Z"
   },
   {
     "id": "hero-zwierzaki",
-    "prompt": "a cute group of cute zoo animals — lion, zebra and owl smiling together for children, in a cute animals, zoo, farm, soft greens setting, doodle style, hand-drawn, thick black outline, pastel colors, white background, simple shapes, children's book illustration, kawaii, friendly, no shadows",
-    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, deformed, extra fingers, cropped, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute group of cute zoo animals — lion, zebra and owl smiling together for children, in a cute animals, zoo, farm, soft greens setting, doodle style, hand-drawn, thick black outline 2.5px, vibrant pastel colors, pure white background #FFFFFF, isolated centered object occupies 60% frame, detailed illustration, expressive features, soft pastel shading, children's book illustration, rounded 12px, dashed border, kawaii, friendly, distinctive, recognizable silhouette at small size, no text, no letters, no words, no writing, no signage",
+    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, background scenery, multiple objects, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-zwierzaki__doodle__schnell.png",
     "bytes": 875638,
-    "createdAt": "2026-09-08T16:25:39.933Z"
+    "createdAt": "2026-09-14T18:54:44.063Z"
   },
   {
     "id": "hero-pojazdy",
-    "prompt": "a cute happy red car and yellow bus on a road for children, in a cars, trains, planes, bright red and yellow setting, doodle style, hand-drawn, thick black outline, pastel colors, white background, simple shapes, children's book illustration, kawaii, friendly, no shadows",
-    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, deformed, extra fingers, cropped, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute happy red car and yellow bus on a road for children, in a cars, trains, planes, bright red and yellow setting, doodle style, hand-drawn, thick black outline 2.5px, vibrant pastel colors, pure white background #FFFFFF, isolated centered object occupies 60% frame, detailed illustration, expressive features, soft pastel shading, children's book illustration, rounded 12px, dashed border, kawaii, friendly, distinctive, recognizable silhouette at small size, no text, no letters, no words, no writing, no signage",
+    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, background scenery, multiple objects, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-pojazdy__doodle__schnell.png",
     "bytes": 442902,
-    "createdAt": "2026-09-08T16:25:39.938Z"
+    "createdAt": "2026-09-14T18:54:44.066Z"
   },
   {
     "id": "hero-ocean",
-    "prompt": "a cute smiling shark and turtle swimming over coral reef for children, in a sea, beach, coral, turquoise and blue setting, doodle style, hand-drawn, thick black outline, pastel colors, white background, simple shapes, children's book illustration, kawaii, friendly, no shadows",
-    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, deformed, extra fingers, cropped, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute smiling shark and turtle swimming over coral reef for children, in a sea, beach, coral, turquoise and blue setting, doodle style, hand-drawn, thick black outline 2.5px, vibrant pastel colors, pure white background #FFFFFF, isolated centered object occupies 60% frame, detailed illustration, expressive features, soft pastel shading, children's book illustration, rounded 12px, dashed border, kawaii, friendly, distinctive, recognizable silhouette at small size, no text, no letters, no words, no writing, no signage",
+    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, background scenery, multiple objects, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-ocean__doodle__schnell.png",
     "bytes": 670837,
-    "createdAt": "2026-09-08T16:25:39.942Z"
+    "createdAt": "2026-09-14T18:54:44.069Z"
   },
   {
     "id": "hero-dinozaury",
-    "prompt": "a cute friendly baby T-Rex and triceratops playing for children, in a jurassic, friendly dinosaurs, jungle greens setting, doodle style, hand-drawn, thick black outline, pastel colors, white background, simple shapes, children's book illustration, kawaii, friendly, no shadows",
-    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, deformed, extra fingers, cropped, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute friendly baby T-Rex and triceratops playing for children, in a jurassic, friendly dinosaurs, jungle greens setting, doodle style, hand-drawn, thick black outline 2.5px, vibrant pastel colors, pure white background #FFFFFF, isolated centered object occupies 60% frame, detailed illustration, expressive features, soft pastel shading, children's book illustration, rounded 12px, dashed border, kawaii, friendly, distinctive, recognizable silhouette at small size, no text, no letters, no words, no writing, no signage",
+    "negative_prompt": "photorealistic, 3d render, dark, scary, horror, blurry, low quality, watermark, signature, text, letters, words, writing, signage, label, font, typography, deformed, extra fingers, cropped, background scenery, multiple objects, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-dinozaury__doodle__schnell.png",
     "bytes": 919861,
-    "createdAt": "2026-09-08T16:25:39.945Z"
+    "createdAt": "2026-09-14T18:54:44.072Z"
   },
   {
     "id": "hero-las",
-    "prompt": "a cute cozy forest with owl on pine tree and mushrooms for children, in a forest, trees, mushrooms, earthy greens setting, soft watercolor illustration, light washes, white paper background, gentle brush strokes, children's picture book, warm and cozy",
-    "negative_prompt": "photorealistic, 3d, plastic, glossy, dark, scary, text, letters, watermark, blurry, deformed, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute cozy forest with owl on pine tree and mushrooms for children, in a forest, trees, mushrooms, earthy greens setting, soft watercolor illustration, light washes, white paper background, gentle brush strokes, children's picture book, warm and cozy, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, 3d, plastic, glossy, dark, scary, text, letters, words, writing, signage, watermark, blurry, deformed, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-las__watercolor__schnell.png",
     "bytes": 1391697,
-    "createdAt": "2026-09-08T16:25:39.949Z"
+    "createdAt": "2026-09-14T18:54:44.076Z"
   },
   {
     "id": "hero-jedzenie",
-    "prompt": "a cute cute fruits and vegetables with smiling faces on a kitchen table for children, in a fruits, vegetables, kitchen, warm orange setting, kawaii chibi style, big eyes, pastel palette, white background, cute, soft shading, children's sticker, minimal detail",
-    "negative_prompt": "photorealistic, realistic, horror, creepy, dark, nsfw, blurry, text, watermark, deformed, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute cute fruits and vegetables with smiling faces on a kitchen table for children, in a fruits, vegetables, kitchen, warm orange setting, kawaii chibi style, big eyes, pastel palette, white background, cute, soft shading, children's sticker, minimal detail, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, realistic, horror, creepy, dark, nsfw, blurry, text, letters, words, writing, signage, watermark, deformed, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-jedzenie__kawaii__schnell.png",
     "bytes": 945895,
-    "createdAt": "2026-09-08T16:25:39.953Z"
+    "createdAt": "2026-09-14T18:54:44.079Z"
   },
   {
     "id": "hero-sport",
-    "prompt": "a cute kids playing football on a field, joyful for children, in a ball, field, playground, energetic purple setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design",
-    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, watermark, deformed, photo, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute kids playing football on a field, joyful for children, in a ball, field, playground, energetic purple setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, letters, words, writing, signage, watermark, deformed, photo, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-sport__flat__schnell.png",
     "bytes": 320283,
-    "createdAt": "2026-09-08T16:25:39.957Z"
+    "createdAt": "2026-09-14T18:54:44.083Z"
   },
   {
     "id": "word-SOWA",
@@ -145,75 +145,75 @@
   },
   {
     "id": "hero-dom",
-    "prompt": "a cute cozy living room with sofa and curtains and lamp, warm and friendly for children, in a cozy home, room, kitchen, warm beige setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design",
-    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, watermark, deformed, photo, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute cozy living room with sofa and curtains and lamp, warm and friendly for children, in a cozy home, room, kitchen, warm beige setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, letters, words, writing, signage, watermark, deformed, photo, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-dom__flat__schnell.png",
     "bytes": 555889,
-    "createdAt": "2026-09-08T16:25:39.960Z"
+    "createdAt": "2026-09-14T18:54:44.085Z"
   },
   {
     "id": "hero-ubrania",
-    "prompt": "a cute cute wardrobe with dresses and jackets and hats, colorful and organized for children, in a clothes, wardrobe, pink and soft pastels setting, kawaii chibi style, big eyes, pastel palette, white background, cute, soft shading, children's sticker, minimal detail",
-    "negative_prompt": "photorealistic, realistic, horror, creepy, dark, nsfw, blurry, text, watermark, deformed, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute cute wardrobe with dresses and jackets and hats, colorful and organized for children, in a clothes, wardrobe, pink and soft pastels setting, kawaii chibi style, big eyes, pastel palette, white background, cute, soft shading, children's sticker, minimal detail, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, realistic, horror, creepy, dark, nsfw, blurry, text, letters, words, writing, signage, watermark, deformed, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-ubrania__kawaii__schnell.png",
     "bytes": 765813,
-    "createdAt": "2026-09-08T16:25:39.964Z"
+    "createdAt": "2026-09-14T18:54:44.089Z"
   },
   {
     "id": "hero-pogoda",
-    "prompt": "a cute cheerful sun and clouds and rainbow over hills for children, in a sun, rain, snow, sky blues setting, soft watercolor illustration, light washes, white paper background, gentle brush strokes, children's picture book, warm and cozy",
-    "negative_prompt": "photorealistic, 3d, plastic, glossy, dark, scary, text, letters, watermark, blurry, deformed, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute cheerful sun and clouds and rainbow over hills for children, in a sun, rain, snow, sky blues setting, soft watercolor illustration, light washes, white paper background, gentle brush strokes, children's picture book, warm and cozy, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, 3d, plastic, glossy, dark, scary, text, letters, words, writing, signage, watermark, blurry, deformed, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-pogoda__watercolor__schnell.png",
     "bytes": 534996,
-    "createdAt": "2026-09-08T16:25:39.968Z"
+    "createdAt": "2026-09-14T18:54:44.092Z"
   },
   {
     "id": "hero-muzyka",
-    "prompt": "a cute happy kids playing instruments — guitar and drum and trumpet for children, in a instruments, notes, violet stage setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design",
-    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, watermark, deformed, photo, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute happy kids playing instruments — guitar and drum and trumpet for children, in a instruments, notes, violet stage setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, letters, words, writing, signage, watermark, deformed, photo, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-muzyka__flat__schnell.png",
     "bytes": 555593,
-    "createdAt": "2026-09-08T16:25:39.972Z"
+    "createdAt": "2026-09-14T18:54:44.096Z"
   },
   {
     "id": "hero-ogrod",
-    "prompt": "a cute beautiful garden with flowers and vegetables and ladybug for children, in a flowers, garden, spring greens setting, soft watercolor illustration, light washes, white paper background, gentle brush strokes, children's picture book, warm and cozy",
-    "negative_prompt": "photorealistic, 3d, plastic, glossy, dark, scary, text, letters, watermark, blurry, deformed, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute beautiful garden with flowers and vegetables and ladybug for children, in a flowers, garden, spring greens setting, soft watercolor illustration, light washes, white paper background, gentle brush strokes, children's picture book, warm and cozy, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, 3d, plastic, glossy, dark, scary, text, letters, words, writing, signage, watermark, blurry, deformed, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-ogrod__watercolor__schnell.png",
     "bytes": 1085866,
-    "createdAt": "2026-09-08T16:25:39.976Z"
+    "createdAt": "2026-09-14T18:54:44.099Z"
   },
   {
     "id": "hero-miasto",
-    "prompt": "a cute friendly city street with shops and tram and houses for children, in a street, shops, city, neutral greys setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design",
-    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, watermark, deformed, photo, no text, no letters, no words, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "prompt": "a cute friendly city street with shops and tram and houses for children, in a street, shops, city, neutral greys setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, letters, words, writing, signage, watermark, deformed, photo, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
     "model": "black-forest-labs/FLUX.1-schnell",
     "provider": "auto",
     "width": 1024,
     "height": 1024,
     "file": "hero-miasto__flat__schnell.png",
     "bytes": 434310,
-    "createdAt": "2026-09-08T16:25:39.979Z"
+    "createdAt": "2026-09-14T18:54:44.101Z"
   },
   {
     "id": "word-SAMOCHOD",
@@ -1275,5 +1275,44 @@
     "bytes": 398743,
     "latencyMs": 4542,
     "createdAt": "2026-09-08T17:21:08.701Z"
+  },
+  {
+    "id": "hero-hawaje",
+    "prompt": "a cute tropical Hawaii beach with palm tree, hibiscus flower, smiling sun and gentle waves for children, in a tropical Hawaii beach, palm trees, hibiscus flowers, turquoise waves, warm sunset setting, soft watercolor illustration, light washes, white paper background, gentle brush strokes, children's picture book, warm and cozy, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, 3d, plastic, glossy, dark, scary, text, letters, words, writing, signage, watermark, blurry, deformed, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "model": "black-forest-labs/FLUX.1-schnell",
+    "provider": "auto",
+    "width": 1024,
+    "height": 1024,
+    "file": "hero-hawaje__watercolor__schnell.png",
+    "bytes": 1087781,
+    "latencyMs": 4597,
+    "createdAt": "2026-09-14T18:54:48.700Z"
+  },
+  {
+    "id": "hero-halloween",
+    "prompt": "a cute cute friendly Halloween pumpkins and smiling ghost with candy, not scary for children, in a cute Halloween pumpkins, friendly ghosts, candy, autumn, not scary, pastel orange setting, kawaii chibi style, big eyes, pastel palette, white background, cute, soft shading, children's sticker, minimal detail, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, realistic, horror, creepy, dark, nsfw, blurry, text, letters, words, writing, signage, watermark, deformed, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "model": "black-forest-labs/FLUX.1-schnell",
+    "provider": "auto",
+    "width": 1024,
+    "height": 1024,
+    "file": "hero-halloween__kawaii__schnell.png",
+    "bytes": 746287,
+    "latencyMs": 4158,
+    "createdAt": "2026-09-14T18:54:54.060Z"
+  },
+  {
+    "id": "hero-minecraft",
+    "prompt": "a cute friendly blocky minecraft grass block and pickaxe, cute pixel style, not scary for children, in a blocky pixel style minecraft, cubes, grass block, pickaxe, friendly setting, flat vector illustration, minimal, geometric shapes, pastel, white background, clean, modern children's design, no text, no letters, no writing",
+    "negative_prompt": "photorealistic, gradients heavy, shadows, 3d, scary, blurry, text, letters, words, writing, signage, watermark, deformed, photo, no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence",
+    "model": "black-forest-labs/FLUX.1-schnell",
+    "provider": "auto",
+    "width": 1024,
+    "height": 1024,
+    "file": "hero-minecraft__flat__schnell.png",
+    "bytes": 504474,
+    "latencyMs": 3111,
+    "createdAt": "2026-09-14T18:54:58.374Z"
   }
 ]

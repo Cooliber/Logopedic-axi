@@ -12,10 +12,12 @@ function hashWord(word: string): number {
 
 export const promptFactory = {
   forWord(word: string, opts: PromptOpts = {}) {
-    const style = opts.style ?? "doodle";
+    // Kanon słów: flashcard lock — spójny styl z SVG doodle na kartach.
+    // english-only subject: model nie dostaje polskiego słowa jako tekstu (nie renderuje napisów).
+    const style = opts.style ?? "flashcard";
     const en = opts.english ?? word.toLowerCase();
-    const subject = `single ${en} — cute, friendly, simple, isolated`;
-    const extra = "single object centered occupies 60% frame, isolated on pure white background #FFFFFF, front view, no other objects, no shadows, no scenery, no text, no letters, no writing, flat vector";
+    const subject = `simple cute illustration of a single ${en}`;
+    const extra = "single object, centered, occupies 55% of frame, front view, no other objects, isolated on pure white background";
     const seed = opts.seed ?? hashWord(word);
     const { prompt, negative_prompt } = buildPrompt({ subject, style, extra });
     return { prompt, negative_prompt, seed };

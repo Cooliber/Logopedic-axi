@@ -6,10 +6,10 @@ import { THEMES } from "@/lib/pdf/themes/catalog";
 import { DoodleStar, DoodleCrown, DoodleFire, DoodleTree, DoodleCloud, DoodleBalloon, DoodleGift, DoodleTrophy, DoodleHeart, DoodleApple, DoodleRocket, DoodleCake, wordToDataUri } from "@/lib/pdf/icons";
 import { BASE_WORDS } from "@/lib/pdf/themes/wordPools";
 
-const categories = ["wszystkie", "szeregi", "tematyczne", "plynnosc", "gry", "dialog", "oddech", "sklep", "nagrody"] as const;
+const categories = ["wszystkie", "szeregi", "tematyczne", "plynnosc", "gry", "gry-nowe", "dialog", "oddech", "sklep", "nagrody"] as const;
 
 const HERO_STYLE: Record<string, string> = {
-  kosmos: "doodle", zwierzaki: "doodle", pojazdy: "doodle", ocean: "doodle", dinozaury: "doodle", las: "watercolor", jedzenie: "kawaii", sport: "flat", dom: "flat", ubrania: "kawaii", pogoda: "watercolor", muzyka: "flat", ogrod: "watercolor", miasto: "flat",
+  kosmos: "doodle", zwierzaki: "doodle", pojazdy: "doodle", ocean: "doodle", dinozaury: "doodle", las: "watercolor", jedzenie: "kawaii", sport: "flat", dom: "flat", ubrania: "kawaii", pogoda: "watercolor", muzyka: "flat", ogrod: "watercolor", miasto: "flat", hawaje: "watercolor", halloween: "kawaii", minecraft: "flat",
 };
 
 function heroPath(theme: string) {

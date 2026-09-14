@@ -438,6 +438,79 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
       P("BRAMA", "R"),
     ],
   },
+  hawaje: {
+    syczacy: [
+      P("SOK", "S"), P("SŁOŃCE", "S"), P("SURFER", "S"),
+      P("ZATOKA", "Z"), P("ZABAWA", "Z"),
+      P("CYTRYNA", "C"), P("CYKL", "C"),
+      S("OSADA", "S"), K("KOS", "S"), K("ANANAS", "S"),
+    ],
+    szumiacy: [
+      P("SZUM", "SZ"), P("SZORTY", "SZ"), P("SZALUPA", "SZ"),
+      P("ŻÓŁW", "Z"),
+      P("CZAPKA", "CZ"),
+      K("KOSZ", "SZ"), K("PLAŻA", "Z"),
+      P("DŻUNGLE", "DZ"),
+    ],
+    ciszacy: [
+      P("ŚLIMAK", "S"), P("ŚCIEŻKA", "S"),
+      P("ĆMA", "C"), P("CIENIE", "C"),
+      K("LIŚĆ", "S"), K("MIŚ", "S"),
+    ],
+    rotacyzm: [
+      P("RAFA", "R"), P("REKIN", "R"), P("RYBA", "R"), P("RÓŻA", "R"),
+      S("KORAL", "R"), S("TRAWNIK", "R"),
+      K("MUR", "R"), K("TOR", "R"),
+    ],
+  },
+  halloween: {
+    syczacy: [
+      P("SOWA", "S"), P("SOK", "S"), P("SŁOIK", "S"),
+      P("ZABAWA", "Z"), P("ZMORA", "Z"),
+      P("CYTRYNA", "C"), P("CUKIER", "C"),
+      K("KOS", "S"), K("LAS", "S"),
+    ],
+    szumiacy: [
+      P("SZUM", "SZ"), P("SZAFA", "SZ"), P("SZKIELET", "SZ"),
+      P("ŻABA", "Z"),
+      P("CZAR", "CZ"), P("CZAPKA", "CZ"),
+      K("JEŻ", "Z"), K("KOSZ", "SZ"),
+    ],
+    ciszacy: [
+      P("ŚWIECA", "S"), P("ŚWIECE", "S"), P("ĆMA", "C"),
+      K("KOŚĆ", "S"), K("LIŚĆ", "S"),
+      P("DŹWIĘK", "DZ"),
+    ],
+    rotacyzm: [
+      P("RÓŻA", "R"), P("ROBOT", "R"), P("RYCERZ", "R"),
+      S("TRUMNIA", "R"), S("KORONA", "R"),
+      K("MUR", "R"), K("TORT", "R"),
+    ],
+  },
+  minecraft: {
+    syczacy: [
+      P("SKAŁA", "S"), P("SOK", "S"), P("SOWA", "S"),
+      P("ZAMEK", "Z"),
+      P("CYKL", "C"), P("CEGŁA", "C"),
+      K("LAS", "S"), K("KOS", "S"),
+    ],
+    szumiacy: [
+      P("SZKIELET", "SZ"), P("SZKŁO", "SZ"), P("SZOP", "SZ"),
+      P("ŻELAZO", "Z"),
+      P("CZAPKA", "CZ"),
+      K("MYSZ", "SZ"), K("GARAŻ", "Z"),
+    ],
+    ciszacy: [
+      P("ŚNIEG", "S"), P("ŚWIECA", "S"),
+      P("ĆMA", "C"), P("CIENIE", "C"),
+      K("KOŚĆ", "S"), K("LIŚĆ", "S"),
+    ],
+    rotacyzm: [
+      P("RÓWNOWAGA", "R"), P("RURA", "R"), P("RYBA", "R"), P("REKIN", "R"),
+      S("KORONA", "R"), S("DIAMENT", "R"),
+      K("MUR", "R"), K("TOR", "R"),
+    ],
+  },
 };
 
 export function getWords(theme: ThemeId, szereg: SzeregId): WordEntry[] {

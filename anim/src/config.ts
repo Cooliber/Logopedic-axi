@@ -78,6 +78,9 @@ export const THEME_STYLE_HINT: Record<string, string> = {
   muzyka: "instruments, notes, violet stage",
   ogrod: "flowers, garden, spring greens",
   miasto: "street, shops, city, neutral greys",
+  hawaje: "tropical Hawaii beach, palm trees, hibiscus flowers, turquoise waves, warm sunset",
+  halloween: "cute Halloween pumpkins, friendly ghosts, candy, autumn, not scary, pastel orange",
+  minecraft: "blocky pixel style minecraft, cubes, grass block, pickaxe, friendly",
 };
 
 // Szereg → wskazówka terapeutyczna do prompta (nie wymusza słowa, tylko klimat)
