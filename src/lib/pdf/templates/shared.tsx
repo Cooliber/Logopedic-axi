@@ -116,7 +116,7 @@ export function InstructionCard({
             <span tw="text-[8px] font-black bg-[#F3F4F6] px-2 py-0.5 rounded-full text-[#6B7280]">{time}</span>
           )}
         </div>
-        <span tw="text-[11px] leading-[1.6] text-[#1A1A2E] font-semibold" style={{ letterSpacing: "0.3px" }}>{text}</span>
+        <span tw="text-[11px] leading-[1.6] text-[#1A1A2E] font-semibold" style={{ letterSpacing: "0.3px", wordSpacing: "0.25em" }}>{text}</span>
         {steps && steps.length > 0 && (
           <div tw="flex gap-1.5 mt-1">
             {steps.map((s, i) => (
@@ -137,11 +137,11 @@ export function InstructionCard({
 
 export function ParentTip({ text, accent }: { text: string; accent: string }) {
   return (
-    <div tw="rounded-[12px] px-3 py-2 flex gap-2 items-start" style={{ backgroundColor: "#F9FAFB", border: "1.5px solid #E5E7EB" }}>
-      <span tw="text-[9px] font-black uppercase tracking-widest shrink-0" style={{ color: accent }}>
+    <div tw="rounded-[12px] px-3 py-1.5 flex gap-1.5 items-start" style={{ backgroundColor: "#F9FAFB", border: "1.5px solid #E5E7EB" }}>
+      <span tw="text-[7px] font-black uppercase tracking-widest shrink-0" style={{ color: accent }}>
         DLA DOROSLEGO
       </span>
-      <span tw="text-[9px] leading-[1.4] font-semibold text-[#6B7280] flex-1">{text}</span>
+      <span tw="text-[7px] leading-[1.4] font-semibold text-[#6B7280] flex-1">{text}</span>
     </div>
   );
 }
@@ -516,11 +516,11 @@ export function MinimalPairs({ pairs, accent }: { pairs: Array<[string, string]>
         {pairs.map(([a, b]) => (
           <div key={a + b} tw="rounded-[12px] bg-white p-2.5 flex items-center gap-2" style={{ border: `1.8px solid ${accent}30` }}>
             <div tw="flex-1 rounded-[10px] px-2 py-2 text-center" style={{ backgroundColor: "#F9FAFB", border: "1.5px solid #E5E7EB" }}>
-              <span tw="text-[10px] font-black text-[#1A1A2E]">{a}</span>
+              <span tw="text-[10px] font-black text-[#1A1A2E]" style={{ wordSpacing: "0.25em" }}>{a}</span>
             </div>
             <span tw="text-[8px] font-black text-[#6B7280]">VS</span>
             <div tw="flex-1 rounded-[10px] px-2 py-2 text-center" style={{ backgroundColor: "#FFFBEB", border: `1.5px solid ${accent}` }}>
-              <span tw="text-[10px] font-black" style={{ color: accent }}>
+              <span tw="text-[10px] font-black" style={{ color: accent, wordSpacing: "0.25em" }}>
                 {b}
               </span>
             </div>
