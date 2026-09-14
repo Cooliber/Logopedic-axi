@@ -18,14 +18,16 @@ export function normalizeFileName(word: string): string {
 
 export function wordPngDataUri(word: string): string | null {
   if (cache.has(word)) return cache.get(word) ?? null;
-  const file = join(process.cwd(), "public", "anim", "words", `${normalizeFileName(word)}.png`);
+  const base = join(process.cwd(), "public", "anim", "words", normalizeFileName(word));
+  const thumb = `${base}.thumb.png`;
+  const orig = `${base}.png`;
+  // Prefer 256 thumb (12-44KB) — 1024 skip >90KB, thumb pass → PDF 150K z HF
+  const file = existsSync(thumb) ? thumb : orig;
   let out: string | null = null;
   if (existsSync(file)) {
     try {
-      // F3 hard limit 90KB — większe PNG (1024 200-700KB) skip → SVG fallback, PDF <200KB
-      // Docelowo thumbnail 256px via sharp (todo F3), teraz SVG keeps 110k.
       const st = statSync(file);
-      if (st.size > 90 * 1024) {
+      if (st.size > 90 * 1024 && file === orig) {
         out = null;
       } else {
         out = `data:image/png;base64,${readFileSync(file).toString("base64")}`;

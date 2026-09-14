@@ -19,6 +19,7 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-doodle-icons": "^1.0.0",
+    "sharp": "^0.35.4",
     "takumi-pdf": "^0.14.3"
   },
   "devDependencies": {
