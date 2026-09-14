@@ -115,11 +115,11 @@ export function ThemedTemplate({ name, date, eko, theme, szereg, images, profile
         </div>
         <div tw="grid grid-cols-4 gap-8">
           {words.map((it) => (
-            <div key={it.w + it.pos} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `2.5px solid #1A1A2E`, boxShadow: "0 3px 0 rgba(0,0,0,0.08)", minHeight: "192px" }}>
+            <div key={it.w + it.pos} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `1.8px dashed #E5E7EB`, minHeight: "192px", backgroundColor: "#FFFFFF" }}>
               {imgFor(it.w) ? (
-                <img src={imgFor(it.w)!} tw="h-[118px] w-[118px] rounded-[14px] bg-white shrink-0" style={{ border: `2.5px solid ${c.primary}` }} />
+                <img src={imgFor(it.w)!} tw="h-[132px] w-[132px] rounded-[14px] bg-white shrink-0" style={{ border: `1.5px solid #E5E7EB`, objectFit: "cover" as any }} />
               ) : (
-                <span tw="h-[118px] w-[118px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black shrink-0" style={{ border: `2.5px solid #1A1A2E`, color: c.primary }}>{it.w.charAt(0)}</span>
+                <span tw="h-[132px] w-[132px] rounded-[14px] bg-white flex items-center justify-center text-[16px] font-black shrink-0" style={{ border: `1.5px solid #E5E7EB`, color: c.primary }}>{it.w.charAt(0)}</span>
               )}
               <span tw="text-[12px] font-black text-[#1A1A2E] text-center leading-none tracking-tight">{it.w}</span>
               <span tw="h-5 w-5 rounded-full flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: it.pos === "P" ? "#22C55E" : it.pos === "S" ? "#F59E0B" : "#EF4444" }}>{it.pos}</span>
