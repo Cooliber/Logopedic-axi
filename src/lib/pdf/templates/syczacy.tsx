@@ -1,13 +1,15 @@
 import { kidPalette } from "../theme";
 import { wordToDataUri } from "../icons";
 import { cymaticMandalaFull } from "../cymaticPatterns";
+import { profileFromProbe, type Profile } from "../neuro/profile";
 import { CuttingLine, FooterBar, HierarchyBar, PageHeader, PersonalizationBar, SelfRating, StickerStrip } from "./shared";
 const c = kidPalette.sycy;
-export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: string; eko?: boolean } = {}) {
+export function SyczacyTemplate({ name, date, eko, profile }: { name?: string; date?: string; eko?: boolean; profile?: Profile } = {}) {
   const words: Array<{ w: string; pos: "P" | "S" | "K" }> = [
     { w: "SOWA", pos: "P" }, { w: "SOK", pos: "P" }, { w: "SER", pos: "P" }, { w: "ZUPA", pos: "P" },
     { w: "ZAMEK", pos: "P" }, { w: "CYTRYNA", pos: "P" }, { w: "KOC", pos: "K" }, { w: "DZWON", pos: "P" },
   ];
+  const displayWords = words.slice(0, profile?.wordsCount ?? 8);
   return (
     <div tw="flex flex-col p-6 w-full min-h-full" style={{ backgroundColor: eko ? "#FFFFFF" : "#FFFBEB" }}>
       <PageHeader title="SYK SYCZĄCY" subtitle="Szereg syczący — s z c dz — syczy jak wąż" icon="S" color={c.primary} badge="1" heroLetter="S" />
@@ -32,7 +34,7 @@ export function SyczacyTemplate({ name, date, eko }: { name?: string; date?: str
           <span tw="text-[7px] font-black px-2 py-1 rounded-full text-white" style={{ backgroundColor: c.primary }}>P = początek • K = koniec</span>
         </div>
         <div tw="grid grid-cols-2 gap-8">
-          {words.map((it) => (
+          {displayWords.map((it) => (
             <div key={it.w} tw="rounded-[18px] bg-white py-4 px-3 flex flex-col items-center gap-2" style={{ border: `2.5px solid #1A1A2E`, boxShadow: "0 3px 0 rgba(0,0,0,0.08)", minHeight: "192px" }}>
               <img src={wordToDataUri(it.w)!} tw="h-[118px] w-[118px] rounded-[14px] shrink-0" style={{ border: `2.5px solid ${c.primary}` }} />
               <span tw="text-[12px] font-black text-[#1A1A2E] text-center leading-none tracking-tight">{it.w}</span>

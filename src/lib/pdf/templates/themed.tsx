@@ -4,6 +4,7 @@ import { THEMES, type ThemeId, type SzeregId } from "../themes/catalog";
 import { vocabulary } from "../themes/vocabulary";
 import { auditModules } from "../modules/types";
 import { cymaticMandalaFull } from "../cymaticPatterns";
+import { profileFromProbe, type Profile } from "../neuro/profile";
 import {
   CuttingLine,
   FooterBar,
@@ -14,7 +15,7 @@ import {
   StickerStrip,
 } from "./shared";
 
-type Props = { name?: string; date?: string; eko?: boolean; theme: ThemeId; szereg: SzeregId; images?: Record<string, string> };
+type Props = { name?: string; date?: string; eko?: boolean; theme: ThemeId; szereg: SzeregId; images?: Record<string, string>; profile?: Profile };
 
 const szeregMeta: Record<SzeregId, { label: string; subtitle: string; palette: (typeof kidPalette)[keyof typeof kidPalette]; badges: string[] }> = {
   syczacy: { label: "Syk Syczący", subtitle: "Szereg syczący • s z c dz", palette: kidPalette.sycy as never, badges: ["1", "2", "3"] },
@@ -23,11 +24,11 @@ const szeregMeta: Record<SzeregId, { label: string; subtitle: string; palette: (
   rotacyzm: { label: "Ryczący Lew", subtitle: "Rotacyzm • R", palette: kidPalette.r as never, badges: ["BOSS"] },
 };
 
-export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props) {
+export function ThemedTemplate({ name, date, eko, theme, szereg, images, profile }: Props) {
   const t = THEMES.find((x) => x.id === theme)!;
   const s = szeregMeta[szereg];
   const c = s.palette as never as { primary: string; secondary: string; accent: string; light: string; dark: string; border: string };
-  const words = vocabulary.wordsFor(theme, szereg).slice(0, 8);
+  const words = vocabulary.wordsFor(theme, szereg).slice(0, profile?.wordsCount ?? 8);
   const fallbackNote = words.length < 8;
   const imgFor = (w: string) => images?.[w] ?? wordToDataUri(w);
   const layoutCheck = auditModules(["header", "personalization", "hierarchy", "hero", "words", "exercises", "closing"]);
