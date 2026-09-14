@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { render } from "takumi-pdf/next";
 import { templates, type TemplateSlug } from "@/lib/pdf/templates";
+import { parseThemedSlug } from "@/lib/pdf/themes/catalog";
+import { vocabulary } from "@/lib/pdf/themes/vocabulary";
+import { resolveWordImages } from "@/lib/pdf/serverImages";
 import React from "react";
 
 export const runtime = "nodejs";
@@ -53,6 +56,14 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ slug
 
   const props: Record<string, unknown> = { name, date, eko };
   if (qrDataUrl) props.qr = qrDataUrl;
+
+  // Obrazki HF dla slugów tematycznych — PNG dataURI (fallback w szablonie: SVG doodle → litera)
+  const themed = parseThemedSlug(slug);
+  if (themed) {
+    const themedWords = vocabulary.wordsFor(themed.theme, themed.szereg).map((w) => w.w);
+    const imgs = resolveWordImages(themedWords);
+    if (Object.keys(imgs).length > 0) props.images = imgs;
+  }
 
   const rawElement = (tpl.component as (p?: Record<string, unknown>) => React.ReactElement)(props);
   const element = stripEmojisFromNode(rawElement) as React.ReactElement;

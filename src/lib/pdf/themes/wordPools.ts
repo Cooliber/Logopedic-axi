@@ -440,10 +440,11 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
   },
   hawaje: {
     syczacy: [
-      P("SOK", "S"), P("SŁOŃCE", "S"), P("SURFER", "S"),
+      P("SOK", "S"), P("SŁOŃCE", "S"), P("SALSA", "S"), P("SÓL", "S"),
       P("ZATOKA", "Z"), P("ZABAWA", "Z"),
-      P("CYTRYNA", "C"), P("CYKL", "C"),
-      S("OSADA", "S"), K("KOS", "S"), K("ANANAS", "S"),
+      P("CYKADY", "C"), P("CYKL", "C"),
+      S("OSADA", "S"), S("BASEN", "S"), S("PIASEK", "S"),
+      K("KOS", "S"), K("ANANAS", "S"), K("KOKOS", "S"),
     ],
     szumiacy: [
       P("SZUM", "SZ"), P("SZORTY", "SZ"), P("SZALUPA", "SZ"),
@@ -465,10 +466,10 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
   },
   halloween: {
     syczacy: [
-      P("SOWA", "S"), P("SOK", "S"), P("SŁOIK", "S"),
-      P("ZABAWA", "Z"), P("ZMORA", "Z"),
-      P("CYTRYNA", "C"), P("CUKIER", "C"),
-      K("KOS", "S"), K("LAS", "S"),
+      P("SOWA", "S"), P("SOK", "S"), P("SŁOIK", "S"), P("SMOK", "S"),
+      P("ZABAWA", "Z"), P("ZAGADKA", "Z"), P("ZIELONY", "Z"),
+      P("CEGŁA", "C"), P("CEL", "C"),
+      K("KOS", "S"), K("LAS", "S"), K("GŁOS", "S"),
     ],
     szumiacy: [
       P("SZUM", "SZ"), P("SZAFA", "SZ"), P("SZKIELET", "SZ"),
@@ -507,8 +508,8 @@ export const WORD_POOLS: Record<ThemeId, Partial<Record<SzeregId, WordEntry[]>>>
     ],
     rotacyzm: [
       P("RÓWNOWAGA", "R"), P("RURA", "R"), P("RYBA", "R"), P("REKIN", "R"),
-      S("KORONA", "R"), S("DIAMENT", "R"),
-      K("MUR", "R"), K("TOR", "R"),
+      S("KORONA", "R"), S("KRYSZTAŁ", "R"), S("TRAWA", "R"),
+      K("MUR", "R"), K("TOR", "R"), K("KRATER", "R"),
     ],
   },
 };

@@ -17,7 +17,7 @@ import {
   XPTracker,
 } from "./shared";
 
-type Props = { name?: string; date?: string; eko?: boolean; theme: ThemeId; szereg: SzeregId };
+type Props = { name?: string; date?: string; eko?: boolean; theme: ThemeId; szereg: SzeregId; images?: Record<string, string> };
 
 const szeregMeta: Record<SzeregId, { label: string; subtitle: string; palette: (typeof kidPalette)[keyof typeof kidPalette]; badges: string[] }> = {
   syczacy: { label: "Syk Syczący", subtitle: "Szereg syczący • s z c dz", palette: kidPalette.sycy as never, badges: ["1", "2", "3"] },
@@ -26,12 +26,14 @@ const szeregMeta: Record<SzeregId, { label: string; subtitle: string; palette: (
   rotacyzm: { label: "Ryczący Lew", subtitle: "Rotacyzm • R", palette: kidPalette.r as never, badges: ["BOSS"] },
 };
 
-export function ThemedTemplate({ name, date, eko, theme, szereg }: Props) {
+export function ThemedTemplate({ name, date, eko, theme, szereg, images }: Props) {
   const t = THEMES.find((x) => x.id === theme)!;
   const s = szeregMeta[szereg];
   const c = s.palette as never as { primary: string; secondary: string; accent: string; light: string; dark: string; border: string };
   const words = vocabulary.wordsFor(theme, szereg).slice(0, 8);
   const fallbackNote = words.length < 8;
+  // HF PNG (dataURI z route) → SVG doodle → litera
+  const imgFor = (w: string) => images?.[w] ?? wordToDataUri(w);
   const layoutCheck = auditModules(["header", "personalization", "hierarchy", "hero", "words", "exercises", "closing"]);
   if (!layoutCheck.ok && typeof console !== "undefined") console.warn(`[LayoutEngine] ${theme}-${szereg} budget overflow ${layoutCheck.sum}>744`);
 
@@ -102,7 +104,7 @@ export function ThemedTemplate({ name, date, eko, theme, szereg }: Props) {
         <span tw="text-[7px] font-bold text-[#6B7280] flex-1">{t.blurb}</span>
         <div tw="flex gap-1">
           {themeDoodleHints[theme].slice(0, 4).map((w) => {
-            const src = wordToDataUri(w);
+            const src = imgFor(w);
             return src ? <img key={w} src={src} tw="h-5 w-5 rounded-[5px]" style={{ border: `1px solid ${t.color}20` }} /> : null;
           })}
         </div>
@@ -179,8 +181,8 @@ export function ThemedTemplate({ name, date, eko, theme, szereg }: Props) {
               tw="rounded-[16px] bg-white py-3 px-2 flex flex-col items-center gap-1.5"
               style={{ border: `2px solid #E5E7EB`, minHeight: "128px" }}
             >
-              {wordToDataUri(it.w) ? (
-                <img src={wordToDataUri(it.w)!} tw="h-[64px] w-[64px] rounded-[12px]" style={{ border: `2px solid #E5E7EB`, backgroundColor: "white" }} />
+              {imgFor(it.w) ? (
+                <img src={imgFor(it.w)!} tw="h-[64px] w-[64px] rounded-[12px]" style={{ border: `2px solid #E5E7EB`, backgroundColor: "white" }} />
               ) : (
                 <span tw="h-[64px] w-[64px] rounded-[12px] bg-white flex items-center justify-center text-[16px] font-black" style={{ border: `2px solid #E5E7EB`, color: c.primary }}>
                   {it.w.charAt(0)}
@@ -232,8 +234,8 @@ export function ThemedTemplate({ name, date, eko, theme, szereg }: Props) {
         ) : (
           <div tw="grid grid-cols-2 gap-2.5">
             {minimalPairs[szereg].map(([a, b]) => {
-              const aSrc = wordToDataUri(a);
-              const bSrc = wordToDataUri(b);
+              const aSrc = imgFor(a);
+              const bSrc = imgFor(b);
               return (
                 <div key={a + b} tw="rounded-[14px] bg-white p-3 flex items-center gap-2" style={{ border: `2px solid ${c.border}30` }}>
                   <div tw="flex flex-col items-center gap-1 flex-1">
