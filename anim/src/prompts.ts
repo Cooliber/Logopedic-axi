@@ -1,14 +1,30 @@
-// anim/src/prompts.ts — prompt builder dla kart logopedycznych
+// anim/src/prompts.ts — prompt builder dla kart logopedycznych — v4 PREMIUM HQ
 // Zasady: natural language dla FLUX, tag-style dla SDXL.
-// Wszystkie prompty generują obrazy BEZ tekstu w środku (tekst psuje PDF), z białym tłem.
+// Wszystkie prompty BEZ tekstu (NO TEXT strict) + pure white #FFFFFF + isolated 65% frame.
+// Premium: flashcardPremium = Usborne/Montessori editorial, thick outline 3.5px, pastel flat, 300DPI-ready.
 
 import { THEME_STYLE_HINT } from "./config.js";
 
-export type KidStyle = "doodle" | "doodleColoring" | "kawaii" | "watercolor" | "flat" | "clay" | "flashcard";
+export type KidStyle = "doodle" | "doodleColoring" | "kawaii" | "watercolor" | "flat" | "clay" | "flashcard" | "flashcardPremium";
+
+// EN map dla polskich słów — v4 premium używa TYLKO english w prompt (Polish generował napisy)
+export const PL_TO_EN: Record<string, string> = {
+  SOWA: "owl", RAKIETA: "rocket", SZOP: "raccoon", REKIN: "shark", "SAMOCHÓD": "car", SER: "cheese wedge", RYBA: "fish", SZYSZKA: "pine cone",
+  "MIŚ": "teddy bear", TOR: "train track", LAS: "forest with pine trees", "RÓG": "animal horn", "SZKŁO": "glass pane", KOSZYK: "wicker basket", "ŚCIANA": "brick wall", CZAJNIK: "kettle teapot",
+  ROBOT: "cute robot", KRATER: "moon crater", KORONA: "golden crown", RYS: "lynx wild cat", "ZAJĄC": "hare bunny", "ŻUBR": "bison", SZYNSZYLA: "chinchilla", CIENIE: "shadow puppets", CYKL: "bicycle wheel", SZUM: "wind blowing leaves", "ŻYŁA": "leaf vein", CZAPLA: "heron bird",
+  SŁOŃ: "elephant", ŻABA: "frog", PSZCZÓŁKA: "bee", KOT: "cat", PIES: "dog", KOŃ: "horse", KRÓWKA: "ladybug", MOTYL: "butterfly", ŚLIMAK: "snail", JEŻ: "hedgehog",
+  DOM: "cozy house", AUTO: "car", ROWER: "bicycle", SAMOLOT: "airplane", STATEK: "ship", POCIĄG: "train", BALON: "balloon", PIŁKA: "ball", LALKA: "doll", KLOCKI: "building blocks",
+};
 
 export const STYLE_PRESETS: Record<KidStyle, { promptSuffix: string; negativePrompt: string }> = {
-  // FLASHCARD — kanon dla ikon słów na kartach pracy (lock stylu z audytu koherencji).
-  // Zawsze ten sam szablon, zmienia się tylko obiekt. Flat 2D + gruby kontur = spójne z SVG doodle.
+  // FLASHCARD PREMIUM — v4 HQ: Usborne/Montessori editorial, 600px isolated, 65% frame, 3.5px outline, pastel flat, 300DPI
+  flashcardPremium: {
+    promptSuffix:
+      "premium kids flashcard icon, flat 2D vector illustration, Usborne Montessori editorial style, filled with flat soft pastel colors (warm beige, sage, dusty rose, sky blue), ultra thick clean black outline 3.5px, rounded friendly shapes, ultra minimal details, single object only, plain pure white background #FFFFFF with nothing else, no shading, no shadows, no gradient, no 3D, no photo, no realism, no texture, no frame, no border, image only, without any text, without any letters, without any words, without any captions, without any labels, without any writing, without any watermark, without any signature, centered composition occupies 65% frame, front view, high clarity, print-ready 300 DPI, isolated, crisp edges",
+    negativePrompt:
+      "photo, photorealistic, realistic, 3d render, gradient shading, soft shadows, drop shadow, busy background, scenery, landscape, horizon, complex details, dark colors, neon, scary, creepy, horror, watermark, signature, text, letters, words, writing, signage, label, caption, font, typography, calligraphy, deformed, extra fingers, mutated, cropped, multiple objects, two objects, group, frame, border, line art only, black and white, coloring page, sketch, pencil",
+  },
+  // FLASHCARD — legacy (zachowany dla kompatybilności batch)
   flashcard: {
     promptSuffix:
       "kids speech therapy flashcard icon, flat 2D vector illustration, filled with flat soft pastel colors, thick clean black outline, rounded friendly shapes, very minimal details, plain pure white background with nothing else on it, no shading, no shadows, no gradient, no 3D, no photo, no realism, no texture, no frame, no border around the image, image only, without any text, without any letters, without any words, without any captions, without any labels, without any writing, without any watermark, without any signature, children's picture dictionary style, centered composition, high clarity",
@@ -55,9 +71,9 @@ export const STYLE_PRESETS: Record<KidStyle, { promptSuffix: string; negativePro
   },
 };
 
-// Bazowy bezpieczny negative dla FLUX (FLUX ignoruje negative_prompt, ale provider może go użyć) — v3 NO TEXT strict
+// Bazowy bezpieczny negative dla FLUX (FLUX ignoruje negative_prompt, ale provider może go użyć) — v4 PREMIUM NO TEXT strict + isolated single object
 export const SAFE_NEGATIVE =
-  "no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no scary, no horror, no creepy, no blood, no violence";
+  "no text, no letters, no words, no writing, no signage, no label, no font, no typography, no watermark, no calligraphy, no scary, no horror, no creepy, no blood, no violence, no multiple objects, no group, no two objects, no background scenery, no horizon, no shadows";
 
 export type PromptInput = {
   subject: string; // np. "smiling owl" | "red rocket"
@@ -72,10 +88,10 @@ export function buildPrompt({ subject, theme, style = "doodle", extra }: PromptI
   negative_prompt: string;
 } {
   const preset = STYLE_PRESETS[style];
-  const themeHint = theme ? THEME_STYLE_HINT[theme] ?? theme : "";
-  // FLUX = natural language, zdania. SDXL = tag list — tu generujemy natural language (uniwersalny)
-  // Gdy subject już jest opisem ilustracji (flashcard/hero/canonical), nie wrapuj w "a cute ... for children" — unika duplikatów typu "a cute simple cute illustration"
-  const head = /illustration|object|icon|cover|banner/i.test(subject) ? subject : `a cute ${subject} for children`;
+  // v4 premium: dla flashcardPremium NIE dodawaj themeHint (isolated single object na białym) — theme psuje izolację
+  const useThemeHint = style !== "flashcardPremium" && style !== "flashcard";
+  const themeHint = useThemeHint && theme ? THEME_STYLE_HINT[theme] ?? theme : "";
+  const head = /illustration|object|icon|cover|banner|single/i.test(subject) ? subject : `a cute ${subject} for children`;
   const parts = [
     head,
     themeHint ? `in a ${themeHint} setting` : "",
@@ -86,6 +102,17 @@ export function buildPrompt({ subject, theme, style = "doodle", extra }: PromptI
   const prompt = parts.join(", ");
   const negative_prompt = [preset.negativePrompt, SAFE_NEGATIVE].join(", ");
   return { prompt, negative_prompt };
+}
+
+// v4 PREMIUM WRAPPER — najwyższa jakość dla kart przed dzieckiem (isolated 65% frame, EN only, no theme bleed)
+export function premiumPromptForWord(word: string, style: KidStyle = "flashcardPremium") {
+  const en = PL_TO_EN[word] ?? word.toLowerCase();
+  const subject = `single ${en} — cute, friendly, simple, isolated, centered`;
+  return buildPrompt({ subject, style, extra: "single object centered occupies 65% frame, isolated on pure white background #FFFFFF, front view, no other objects, no shadows, no scenery, no text, no letters, no writing, flat vector, Usborne style, print-ready" });
+}
+export function premiumPromptForHero(theme: string, style: KidStyle = "doodle") {
+  const subject = `premium cover illustration for ${theme} theme — 2-3 cute objects max, editorial, warm`;
+  return buildPrompt({ subject, theme, style, extra: "no text, no letters, no writing, no signage, white background vignette, editorial premium" });
 }
 
 // Gotowe prompty dla pilot batch (mapuje na wordPools + catalog)
@@ -149,26 +176,27 @@ export function hashWordToSeed(word: string): number {
 }
 
 // Helper: prompt dla dowolnego słowa — CANONICAL white bg (bez theme) vs THEMED z theme
-export function promptForWord(word: string, theme: string, szereg: string, style: KidStyle = "doodle") {
-  const subject = `object representing the Polish word "${word}" — simple, recognizable, child-friendly`;
-  return buildPrompt({ subject, theme, szereg, style });
+export function promptForWord(word: string, theme: string, szereg: string, style: KidStyle = "flashcardPremium") {
+  // v4: używaj EN map, nie Polish word (unikaj napisów w obrazku)
+  const en = PL_TO_EN[word] ?? word.toLowerCase();
+  const subject = `single ${en} — cute, friendly, simple, isolated`;
+  return buildPrompt({ subject, theme, szereg, style, extra: "single object centered occupies 65% frame, isolated on pure white background #FFFFFF, front view, no other objects, no shadows, no scenery, no text, no letters, no writing" });
 }
 
-export function promptForWordCanonical(word: string, style: KidStyle = "doodle") {
-  // REALNE_POTRZEBY §4 + TUNING v3: NO TEXT — nie wstrzykuj polskiego słowa jako tekstu, tylko English
-  const subject = `single centered object — cute, simple, child-friendly, isolated on pure white #FFFFFF`;
-  return buildPrompt({ subject, style, extra: "single object centered occupies 65% frame, isolated on pure white background #FFFFFF, front view, no other objects, no shadows, no scenery, no text, no letters, no writing" });
+export function promptForWordCanonical(word: string, style: KidStyle = "flashcardPremium") {
+  const en = PL_TO_EN[word] ?? word.toLowerCase();
+  const subject = `single ${en} — cute, simple, child-friendly, isolated on pure white #FFFFFF`;
+  return buildPrompt({ subject, style, extra: "single object centered occupies 65% frame, isolated on pure white background #FFFFFF, front view, no other objects, no shadows, no scenery, no text, no letters, no writing, flat vector" });
 }
 
-export function promptForWordCanonicalV2(word: string, english: string, style: KidStyle = "doodle") {
-  // v3 NO TEXT: english only, bez Polish word w prompt — model generował napisy, seed deterministyczny
+export function promptForWordCanonicalV2(word: string, english: string, style: KidStyle = "flashcardPremium") {
   const subject = `single ${english} — cute, friendly, simple, isolated`;
   return buildPrompt({ subject, style, extra: "single object centered occupies 65% frame, isolated on pure white background #FFFFFF, front view, no other objects, no shadows, no scenery, no text, no letters, no writing, flat vector" });
 }
 
 export function promptForHero(theme: string, style: KidStyle = "doodle") {
-  const subject = `cover illustration for theme`;
-  return buildPrompt({ subject, theme, style, extra: "no text, no letters, no writing, no signage" });
+  const subject = `premium cover illustration for ${theme} theme — editorial, warm, 2-3 cute objects`;
+  return buildPrompt({ subject, theme, style, extra: "no text, no letters, no writing, no signage, soft vignette, premium editorial" });
 }
 
 // Style lock — doodle vs doodleColoring per M5 (research §4.2, methodology M5 white interior)
